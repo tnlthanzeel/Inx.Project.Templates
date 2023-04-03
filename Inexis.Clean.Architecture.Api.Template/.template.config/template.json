@@ -13,5 +13,14 @@
         "language": "C#",
         "type": "solution"
     },
-    "preferNameDirectory": true
+    "preferNameDirectory": true,
+    "sources": [
+        {
+          "modifiers": [
+            {
+              "exclude": [ ".vs/**" ]
+            }
+          ]
+        }
+      ]
 }
