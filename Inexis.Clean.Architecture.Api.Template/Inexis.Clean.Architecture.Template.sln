@@ -11,17 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{64A13670-259
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{13AA2BC0-BFDD-47EA-B13B-ABE798005DE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inexis.Clean.Architecture.Template.Application", "Inexis.Clean.Architecture.Template.Application\Inexis.Clean.Architecture.Template.Application.csproj", "{69B67F29-8A7A-469A-A3D1-797BB14B3CF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inexis.Clean.Architecture.Template.Application", "Inexis.Clean.Architecture.Template.Application\Inexis.Clean.Architecture.Template.Application.csproj", "{69B67F29-8A7A-469A-A3D1-797BB14B3CF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inexis.Clean.Architecture.Template.Domain", "Inexis.Clean.Architecture.Template.Domain\Inexis.Clean.Architecture.Template.Domain.csproj", "{A5432A12-ED88-47FC-8CE3-B75A2DFBA3F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inexis.Clean.Architecture.Template.Domain", "Inexis.Clean.Architecture.Template.Domain\Inexis.Clean.Architecture.Template.Domain.csproj", "{A5432A12-ED88-47FC-8CE3-B75A2DFBA3F4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{E4CF0654-7C24-4226-9FF0-F07048CFDA57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inexis.Clean.Architecture.Template.Infrastructure", "Inexis.Clean.Architecture.Template.Infrastructure\Inexis.Clean.Architecture.Template.Infrastructure.csproj", "{D2DD76A8-D697-48AD-B31D-B86D66A29CDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inexis.Clean.Architecture.Template.Infrastructure", "Inexis.Clean.Architecture.Template.Infrastructure\Inexis.Clean.Architecture.Template.Infrastructure.csproj", "{D2DD76A8-D697-48AD-B31D-B86D66A29CDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inexis.Clean.Architecture.Template.Persistence", "Inexis.Clean.Architecture.Template.Persistence\Inexis.Clean.Architecture.Template.Persistence.csproj", "{4DCC0E22-61FE-4161-BAC3-4927F9305605}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{EFBA2D11-3C43-40BF-B157-315A9E95AE1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inexis.Clean.Architecture.Template.Persistence", "Inexis.Clean.Architecture.Template.Persistence\Inexis.Clean.Architecture.Template.Persistence.csproj", "{4DCC0E22-61FE-4161-BAC3-4927F9305605}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
