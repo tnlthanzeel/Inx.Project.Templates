@@ -67,5 +67,4 @@ public interface IUserSecurityRespository : IBaseRepository
     Task<IReadOnlyList<UserKeyValue>> GetUsersForPermissionByCompanyId(Guid companyId, string? permission);
     Task<string> GeneratePasswordResetTokenAsync(ApplicationUser user);
     Task<ResponseResult> ResetPassword(ApplicationUser user, string decodedPasswrdResetToken, string newPassword);
-    Task<ResponseResult> CanDeleteUser(Guid userId);
 }

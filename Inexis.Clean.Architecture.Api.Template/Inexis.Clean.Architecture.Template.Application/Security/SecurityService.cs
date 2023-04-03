@@ -221,10 +221,6 @@ public sealed class SecurityService : ISecurityService
 
         if (user is null) return new ResponseResult(new NotFoundException(nameof(id), "User", id));
 
-        var canDeleteUserResponse = await _userSecurityRepository.CanDeleteUser(id);
-
-        if (canDeleteUserResponse.Success is false) return canDeleteUserResponse;
-
         user.Deleted();
 
         await _userSecurityRepository.SaveChangesAsync(token);
