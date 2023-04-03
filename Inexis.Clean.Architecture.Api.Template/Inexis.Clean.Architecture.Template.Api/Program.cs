@@ -54,7 +54,7 @@ app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-    c.RoutePrefix = app.Environment.IsDevelopment() ? string.Empty : c.RoutePrefix;
+  
     c.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None);
 
     if (app.Environment.IsDevelopment())

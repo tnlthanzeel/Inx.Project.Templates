@@ -44,13 +44,10 @@ internal static class SwaggerConfig
 
             });
 
-            var apiCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-            var apiCommentsFullPath = Path.Combine(AppContext.BaseDirectory, apiCommentsFile);
-            c.IncludeXmlComments(apiCommentsFullPath);
-
-            var sharedCommentsFile = $"{typeof(Paginator).Assembly.GetName().Name}.xml";
-            var sharedCommentsFullPath = Path.Combine(AppContext.BaseDirectory, sharedCommentsFile);
-            c.IncludeXmlComments(sharedCommentsFullPath);
+            // Enable to add swagger documentation
+            //var apiCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            //var apiCommentsFullPath = Path.Combine(AppContext.BaseDirectory, apiCommentsFile);
+            //c.IncludeXmlComments(apiCommentsFullPath);
 
             c.OperationFilter<SwaggerJsonIgnore>();
         });
