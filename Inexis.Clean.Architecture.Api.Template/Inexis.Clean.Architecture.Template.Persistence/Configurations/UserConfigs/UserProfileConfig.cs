@@ -17,7 +17,7 @@ internal sealed class UserProfileConfig : IEntityTypeConfiguration<UserProfile>
 
         builder.HasData(new UserProfile()
         {
-            Id = AppConstants.SuperAdmin.SuperAdminRoleId,
+            Id = AppConstants.SuperAdmin.SuperUserId,
             FirstName = "Super",
             LastName = "Admin",
             TimeZone = "Sri Lanka Standard Time"
