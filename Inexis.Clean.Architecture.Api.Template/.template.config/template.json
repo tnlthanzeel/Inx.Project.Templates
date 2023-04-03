@@ -1,0 +1,17 @@
+{
+    "$schema": "http://json-schema.org/template",
+    "author": "Thanzeel Jalaldeen",
+    "classifications": [
+        "WebApi"
+    ],
+    "identity": "Inexis.Clean.Architecture.Api.Template",
+    "name": "Inexis Clean Architecture - Base API",
+    "description": "The template conatains a full solution to get started with an API project",
+    "shortName": "inx-api",
+    "sourceName": "Inexis.Clean.Architecture.Template",
+    "tags": {
+        "language": "C#",
+        "type": "solution"
+    },
+    "preferNameDirectory": true
+}
