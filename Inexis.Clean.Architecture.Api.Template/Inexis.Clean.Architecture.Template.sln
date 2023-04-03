@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inexis.Clean.Architecture.T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inexis.Clean.Architecture.Template.Api", "Inexis.Clean.Architecture.Template.Api\Inexis.Clean.Architecture.Template.Api.csproj", "{4A65539F-4ED8-4C79-A753-68C1974EE2BF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{64A13670-2598-4F0E-A058-9D9F34E73C30}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DA5AA271-FC3A-482D-8C1D-A1E7DAF95DEF} = {64A13670-2598-4F0E-A058-9D9F34E73C30}
+		{4A65539F-4ED8-4C79-A753-68C1974EE2BF} = {64A13670-2598-4F0E-A058-9D9F34E73C30}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BC8BF557-5319-40F3-B5DD-4701939D9616}
