@@ -1,4 +1,6 @@
-﻿namespace Inexis.Clean.Architecture.Template.Application.Security.Interfaces;
+﻿using Inexis.Clean.Architecture.Template.Domain.Entities.IdentityUserEntities;
+
+namespace Inexis.Clean.Architecture.Template.Application.Security.Interfaces;
 
 public interface ITokenBuilder
 {

@@ -45,16 +45,6 @@ public sealed class UserProfileController : AppControllerBase
 
         return response.Success ? NoContent() : UnsuccessfullResponse(response);
     }
-
-    [HttpPut("schedule-notification")]
-    [ProducesResponseType(StatusCodes.Status204NoContent)]
-    [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status404NotFound)]
-    public async Task<ActionResult> ScheduleUserNotification([FromRoute] Guid userId, [FromBody] ScheduleUserNotification model, CancellationToken token)
-    {
-        var response = await _securityService.SetUserNotificationSchedule(userId, model, token);
-
-        return response.Success ? NoContent() : UnsuccessfullResponse(response);
-    }
 }
 
 

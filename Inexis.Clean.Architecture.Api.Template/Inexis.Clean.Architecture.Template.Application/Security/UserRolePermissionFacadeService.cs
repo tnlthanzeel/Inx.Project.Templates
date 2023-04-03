@@ -1,10 +1,12 @@
-﻿using Inexis.Clean.Architecture.Template.Application.Security.Dtos;
+﻿using Inexis.Clean.Architecture.Template.Application.PersistanceInterfaces;
+using Inexis.Clean.Architecture.Template.Application.Security.Dtos;
 using Inexis.Clean.Architecture.Template.Application.Security.Interfaces;
 using Inexis.Clean.Architecture.Template.Application.Security.Validators;
+using Inexis.Clean.Architecture.Template.Domain.Entities.IdentityUserEntities;
+using Inexis.Clean.Architecture.Template.SharedKernal.Exceptions;
+using Inexis.Clean.Architecture.Template.SharedKernal.Responses;
+using Inexis.Clean.Architecture.Template.SharedKernal.Validators;
 using Microsoft.AspNetCore.Identity;
-using VPMS.Application.PersistanceInterfaces;
-using VPMS.Domain.Entities.IdentityUserEntities;
-using VPMS.SharedKernel.Exceptions;
 
 namespace Inexis.Clean.Architecture.Template.Application.Security
 {

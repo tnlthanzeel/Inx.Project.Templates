@@ -1,9 +1,10 @@
-﻿using Inexis.Clean.Architecture.Template.Application.Security.Dtos;
+﻿using Inexis.Clean.Architecture.Template.Application.PersistanceInterfaces;
+using Inexis.Clean.Architecture.Template.Application.Security.Dtos;
 using Inexis.Clean.Architecture.Template.Application.Security.Interfaces;
 using Inexis.Clean.Architecture.Template.Application.Security.Validators;
-using Microsoft.EntityFrameworkCore;
-using VPMS.Application.PersistanceInterfaces;
-using VPMS.SharedKernel.Exceptions;
+using Inexis.Clean.Architecture.Template.SharedKernal.Exceptions;
+using Inexis.Clean.Architecture.Template.SharedKernal.Responses;
+using Inexis.Clean.Architecture.Template.SharedKernal.Validators;
 
 namespace Inexis.Clean.Architecture.Template.Application.Security;
 

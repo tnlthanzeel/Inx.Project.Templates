@@ -16,7 +16,6 @@ public interface ISecurityService
     Task<ResponseResult<UserProfileDto>> GetUserProfile(Guid userId, CancellationToken token);
     Task<ResponseResult> UpdateUserProfile(Guid userId, UpdateUserProfileDto model, CancellationToken token);
     Task<ResponseResult> DeleteUser(Guid id, CancellationToken token);
-    Task<ResponseResult> SetUserNotificationSchedule(Guid userId, ScheduleUserNotification model, CancellationToken token);
     Task<ResponseResult> GetUserNotificationSchedule(Guid userId, CancellationToken token);
     Task<ResponseResult> SendResetPasswordEmail(ForgotPasswordModel forgotPasswordModel, CancellationToken cancellationToken);
     Task<ResponseResult> ResetPassword(ResetPasswordDto model, CancellationToken token);

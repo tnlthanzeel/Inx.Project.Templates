@@ -6,7 +6,6 @@ public record UserDto(Guid Id,
     string FirstName,
     string LastName,
     string TimeZone,
-    IReadOnlyList<Guid> CompanyIds,
     IReadOnlyList<UserClaimsDto> Claims,
     IReadOnlyList<string> Roles
     );

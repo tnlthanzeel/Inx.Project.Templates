@@ -1,6 +1,6 @@
 ﻿using Ardalis.Specification;
 using Inexis.Clean.Architecture.Template.Application.Security.Dtos;
-using VPMS.Domain.Entities.IdentityUserEntities;
+using Inexis.Clean.Architecture.Template.Domain.Entities.IdentityUserEntities;
 
 namespace Inexis.Clean.Architecture.Template.Application.Security.Specs;
 
@@ -18,8 +18,6 @@ public sealed class SingleUserProfileWithProjectionSpec : Specification<Applicat
             FirstName = s.UserProfile.FirstName,
             LastName = s.UserProfile.LastName,
             TimeZone = s.UserProfile.TimeZone,
-            CompanyNames = s.UserProfile.UserCompanies.Select(s => s.Company).Select(s => s.Name).ToList(),
-            NotificationSchedules = s.UserProfile.UserNotificationSchedule.Select(s => new ScheduleUserNotification(s.NotificationType, s.IsActive, s.Time)).ToList()
         });
     }
 }

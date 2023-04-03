@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using VPMS.SharedKernel;
+using Inexis.Clean.Architecture.Template.SharedKernal;
 
 namespace Inexis.Clean.Architecture.Template.Application.Security.Validators;
 

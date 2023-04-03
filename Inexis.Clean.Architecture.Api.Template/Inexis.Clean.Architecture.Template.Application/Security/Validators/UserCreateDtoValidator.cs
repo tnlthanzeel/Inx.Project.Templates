@@ -1,17 +1,14 @@
 ﻿using FluentValidation;
+using Inexis.Clean.Architecture.Template.Application.CommonValidators;
+using Inexis.Clean.Architecture.Template.Application.PersistanceInterfaces;
 using Inexis.Clean.Architecture.Template.Application.Security.Dtos;
-using Inexis.Clean.Architecture.Template.Application.Security.Validators;
-using VPMS.Application.CommonValidators;
-using VPMS.Application.PersistanceInterfaces;
-using VPMS.Application.PersistanceInterfaces.Settings;
-using VPMS.Application.Security.Validators;
-using VPMS.SharedKernel.Helpers;
+using Inexis.Clean.Architecture.Template.SharedKernal.Extensions;
 
 namespace Inexis.Clean.Architecture.Template.Application.Security.Validators;
 
 public sealed class UserCreateDtoValidator : AbstractValidator<UserCreateDto>
 {
-    public UserCreateDtoValidator(IUserSecurityRespository userSecurityRespository, ICompanyRepository companyRepository)
+    public UserCreateDtoValidator(IUserSecurityRespository userSecurityRespository)
     {
         RuleFor(r => r.Email)
             .NotEmpty().WithMessage("Email is required")
@@ -37,9 +34,6 @@ public sealed class UserCreateDtoValidator : AbstractValidator<UserCreateDto>
         RuleFor(r => r.Role)
             .NotEmpty().WithMessage("Role is required");
 
-        RuleFor(r => r.CompanyIds)
-            .UserAssignedCompanyValidation(companyRepository);
-
         RuleFor(r => r.Permissions)
             .AppPermissionValueValidation();
 
@@ -51,7 +45,7 @@ public sealed class UserCreateDtoValidator : AbstractValidator<UserCreateDto>
            .NotEmpty().WithMessage("TimeZone is required")
            .Must((model, timeZone) =>
            {
-               var isValidTimeZone = TimeZoneHelper.IsTimeZoneAvailable(timeZone);
+               var isValidTimeZone = TimeZoneExtension.IsTimeZoneAvailable(timeZone);
                return isValidTimeZone;
            }).WithMessage("Invalid Time zone");
 

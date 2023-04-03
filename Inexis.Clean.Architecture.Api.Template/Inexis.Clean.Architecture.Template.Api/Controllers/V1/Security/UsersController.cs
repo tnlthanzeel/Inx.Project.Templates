@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Inexis.Clean.Architecture.Template.Application.Security.Dtos;
+using Inexis.Clean.Architecture.Template.Application.Security.Filters;
+using Inexis.Clean.Architecture.Template.Application.Security.Interfaces;
+using Inexis.Clean.Architecture.Template.Domain.AuthPolicies;
+using Inexis.Clean.Architecture.Template.SharedKernal.Models;
+using Inexis.Clean.Architecture.Template.SharedKernal.Responses;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using VPMS.Application.Contracts.Security;
-using VPMS.Application.Security.Dtos;
-using VPMS.Domain.AuthPolicies;
-using VPMS.SharedKernel.Models;
-using VPMS.SharedKernel.Responses;
-using VPMS.Application.Security.Filters;
 
 namespace Inexis.Clean.Architecture.Template.Api.Controllers.V1.Security;
 

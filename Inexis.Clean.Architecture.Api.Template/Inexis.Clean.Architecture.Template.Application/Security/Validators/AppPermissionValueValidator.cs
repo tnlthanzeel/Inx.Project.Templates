@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
-using VPMS.Domain.ModulePermissions;
-using VPMS.SharedKernel;
+using Inexis.Clean.Architecture.Template.Domain.ModulePermissions;
 
 namespace Inexis.Clean.Architecture.Template.Application.Security.Validators;
 

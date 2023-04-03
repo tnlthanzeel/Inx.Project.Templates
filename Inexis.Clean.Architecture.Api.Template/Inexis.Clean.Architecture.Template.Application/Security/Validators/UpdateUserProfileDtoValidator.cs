@@ -1,7 +1,6 @@
 ﻿using FluentValidation;
 using Inexis.Clean.Architecture.Template.Application.Security.Dtos;
-using VPMS.Application.Security.Validators;
-using VPMS.SharedKernel.Helpers;
+using Inexis.Clean.Architecture.Template.SharedKernal.Extensions;
 
 namespace Inexis.Clean.Architecture.Template.Application.Security.Validators;
 
@@ -20,7 +19,7 @@ public sealed class UpdateUserProfileDtoValidator : AbstractValidator<UpdateUser
             .NotEmpty().WithMessage("TimeZone is required")
             .Must((model, timeZone) =>
             {
-                var isValidTimeZone = TimeZoneHelper.IsTimeZoneAvailable(timeZone);
+                var isValidTimeZone = TimeZoneExtension.IsTimeZoneAvailable(timeZone);
                 return isValidTimeZone;
             }).WithMessage("Invalid Time zone");
     }

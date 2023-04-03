@@ -1,13 +1,13 @@
-﻿using Inexis.Clean.Architecture.Template.Application.Security.Interfaces;
+﻿using Inexis.Clean.Architecture.Template.Application.PersistanceInterfaces;
+using Inexis.Clean.Architecture.Template.Application.Security.Interfaces;
+using Inexis.Clean.Architecture.Template.Domain.Claims;
+using Inexis.Clean.Architecture.Template.Domain.Entities.IdentityUserEntities;
+using Inexis.Clean.Architecture.Template.SharedKernal;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using VPMS.Application.PersistanceInterfaces;
-using VPMS.Domain.Claims;
-using VPMS.Domain.Entities.IdentityUserEntities;
-using VPMS.SharedKernel;
 
 namespace Inexis.Clean.Architecture.Template.Application.Security;
 

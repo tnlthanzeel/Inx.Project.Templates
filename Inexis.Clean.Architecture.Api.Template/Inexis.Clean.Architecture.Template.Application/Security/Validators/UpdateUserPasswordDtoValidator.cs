@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
+using Inexis.Clean.Architecture.Template.Application.CommonValidators;
 using Inexis.Clean.Architecture.Template.Application.Security.Dtos;
-using VPMS.Application.CommonValidators;
 
 namespace Inexis.Clean.Architecture.Template.Application.Security.Validators;
 

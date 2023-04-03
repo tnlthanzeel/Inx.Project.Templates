@@ -1,5 +1,5 @@
 ﻿using Ardalis.Specification;
-using VPMS.Domain.Entities.IdentityUserEntities;
+using Inexis.Clean.Architecture.Template.Domain.Entities.IdentityUserEntities;
 
 namespace Inexis.Clean.Architecture.Template.Application.Security.Specs;
 
@@ -7,10 +7,6 @@ internal sealed class SingleUserSpec : Specification<ApplicationUser>, ISingleRe
 {
     public SingleUserSpec()
     {
-        Query.Include(i => i.UserProfile)
-                .ThenInclude(i => i.UserCompanies)
-                    .ThenInclude(i => i.Company)
-             .Include(i => i.UserProfile)
-                .ThenInclude(i => i.UserNotificationSchedule);
+        Query.Include(i => i.UserProfile);
     }
 }

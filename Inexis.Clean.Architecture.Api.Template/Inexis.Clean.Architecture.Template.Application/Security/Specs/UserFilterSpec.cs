@@ -1,8 +1,8 @@
 ﻿using Ardalis.Specification;
 using Inexis.Clean.Architecture.Template.Application.Security.Filters;
+using Inexis.Clean.Architecture.Template.Domain.Entities.IdentityUserEntities;
+using Inexis.Clean.Architecture.Template.SharedKernal;
 using Microsoft.EntityFrameworkCore;
-using VPMS.Domain.Entities.IdentityUserEntities;
-using VPMS.SharedKernel;
 
 namespace Inexis.Clean.Architecture.Template.Application.Security.Specs;
 

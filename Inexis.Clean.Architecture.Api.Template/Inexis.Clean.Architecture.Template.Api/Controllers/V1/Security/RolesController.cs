@@ -1,4 +1,7 @@
-﻿using Inexis.Clean.Architecture.Template.SharedKernal.Responses;
+﻿using Inexis.Clean.Architecture.Template.Application.Security.Dtos;
+using Inexis.Clean.Architecture.Template.Application.Security.Interfaces;
+using Inexis.Clean.Architecture.Template.Domain.AuthPolicies;
+using Inexis.Clean.Architecture.Template.SharedKernal.Responses;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

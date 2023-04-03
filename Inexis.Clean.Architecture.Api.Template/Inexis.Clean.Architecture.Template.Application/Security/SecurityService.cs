@@ -1,4 +1,7 @@
-﻿using Inexis.Clean.Architecture.Template.Application.CommonDtos;
+﻿using AutoMapper;
+using Inexis.Clean.Architecture.Template.Application.CommonDtos;
+using Inexis.Clean.Architecture.Template.Application.CommonInterfaces;
+using Inexis.Clean.Architecture.Template.Application.PersistanceInterfaces;
 using Inexis.Clean.Architecture.Template.Application.Security.Dtos;
 using Inexis.Clean.Architecture.Template.Application.Security.Filters;
 using Inexis.Clean.Architecture.Template.Application.Security.Interfaces;
@@ -10,6 +13,7 @@ using Inexis.Clean.Architecture.Template.SharedKernal.Interfaces;
 using Inexis.Clean.Architecture.Template.SharedKernal.Models;
 using Inexis.Clean.Architecture.Template.SharedKernal.Responses;
 using Inexis.Clean.Architecture.Template.SharedKernal.Validators;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Inexis.Clean.Architecture.Template.Application.Security;
@@ -22,8 +26,9 @@ public sealed class SecurityService : ISecurityService
     private readonly IModelValidator _validator;
     private readonly IEmailService _emailService;
     private readonly IApplicationContext _applicationContext;
+    private readonly IMapper _mapper;
 
-    public SecurityService(SignInManager<ApplicationUser> signInManager, ITokenBuilder tokenBuilder, IUserSecurityRespository userSecurityRepository, IModelValidator validator, IEmailService emailService, IApplicationContext applicationContext)
+    public SecurityService(SignInManager<ApplicationUser> signInManager, ITokenBuilder tokenBuilder, IUserSecurityRespository userSecurityRepository, IModelValidator validator, IEmailService emailService, IApplicationContext applicationContext, IMapper mapper)
     {
         _signInManager = signInManager;
         _tokenBuilder = tokenBuilder;
@@ -31,6 +36,7 @@ public sealed class SecurityService : ISecurityService
         _validator = validator;
         _emailService = emailService;
         _applicationContext = applicationContext;
+        _mapper = mapper;
     }
 
     public async Task<ResponseResult<AuthenticatedUserDto>> AuthenticateUser(AuthenticateUserDto model, CancellationToken token)
@@ -107,7 +113,6 @@ public sealed class SecurityService : ISecurityService
                             appUser.UserProfile.FirstName,
                             appUser.UserProfile.LastName,
                             appUser.UserProfile.TimeZone,
-                            appUser.UserProfile.UserCompanies.Select(s => s.CompanyId).ToList(),
                             claims,
                             roles);
 
@@ -153,8 +158,6 @@ public sealed class SecurityService : ISecurityService
         user.UpdateNames(model.FirstName, model.LastName);
 
         user.UpdateTimeZone(model.TimeZone);
-
-        user.UserProfile.AssignUserCompanies(model.CompanyIds);
 
         await _userSecurityRepository.SaveChangesAsync(token);
 
@@ -229,22 +232,6 @@ public sealed class SecurityService : ISecurityService
         return new ResponseResult();
     }
 
-    public async Task<ResponseResult> SetUserNotificationSchedule(Guid userId, ScheduleUserNotification model, CancellationToken token)
-    {
-        var validationResult = await _validator.ValidateAsync<ScheduleUserNotificationValidator, ScheduleUserNotification>(model, token);
-
-        if (validationResult is { IsValid: false }) return new ResponseResult(validationResult.Errors);
-
-        var user = await _userSecurityRepository.GetUserBySpec(userId, token, new SingleUserSpec(), asTracking: true);
-
-        if (user is null) return new ResponseResult(new NotFoundException(nameof(userId), "User", userId));
-
-        user.UserProfile.SetUserNotificationSchedule(model.IsActive, model.NotificationType, model.Time);
-
-        await _userSecurityRepository.SaveChangesAsync(token);
-
-        return new ResponseResult();
-    }
 
     public Task<ResponseResult> GetUserNotificationSchedule(Guid userId, CancellationToken token)
     {

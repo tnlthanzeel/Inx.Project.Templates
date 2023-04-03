@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Inexis.Clean.Architecture.Template.Application.Security.Dtos;
+using Inexis.Clean.Architecture.Template.Application.Security.Interfaces;
+using Inexis.Clean.Architecture.Template.Domain.ModulePermissions;
+using Inexis.Clean.Architecture.Template.SharedKernal.Responses;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inexis.Clean.Architecture.Template.Api.Controllers.V1.Security;

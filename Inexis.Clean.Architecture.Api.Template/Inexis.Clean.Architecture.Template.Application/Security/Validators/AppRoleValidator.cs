@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using VPMS.Application.PersistanceInterfaces;
+using Inexis.Clean.Architecture.Template.Application.PersistanceInterfaces;
 
 namespace Inexis.Clean.Architecture.Template.Application.Security.Validators;
 
