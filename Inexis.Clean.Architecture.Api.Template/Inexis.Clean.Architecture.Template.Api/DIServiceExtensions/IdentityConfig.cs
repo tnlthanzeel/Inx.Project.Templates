@@ -3,13 +3,12 @@ using Inexis.Clean.Architecture.Template.Api.PolicyRequriements.UserClaimRequire
 using Inexis.Clean.Architecture.Template.Application.Security;
 using Inexis.Clean.Architecture.Template.Domain.Entities.IdentityUserEntities;
 using Inexis.Clean.Architecture.Template.Persistence;
+using Inexis.Clean.Architecture.Template.SharedKernal.Helpers;
 using Inexis.Clean.Architecture.Template.SharedKernal.Responses;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using System.Net;
 using System.Text;
 
@@ -17,6 +16,8 @@ namespace Inexis.Clean.Architecture.Template.Api.DIServiceExtensions;
 
 public static class IdentityConfig
 {
+    private const string applicationJSONContentType = "application/json";
+
     public static void AddIdentityConfig(this IServiceCollection services, WebApplicationBuilder builder)
     {
 
@@ -71,19 +72,16 @@ public static class IdentityConfig
                 {
                     OnForbidden = async context =>
                     {
-                        context.Response.ContentType = "application/json";
+                        context.Response.ContentType = applicationJSONContentType;
                         context.Response.StatusCode = StatusCodes.Status403Forbidden;
 
-                        await context.Response.WriteAsync(JsonConvert.SerializeObject(new ErrorResponse()
+                        await context.Response.WriteAsync(Serializer.Serialize(new ErrorResponse()
                         {
                             Errors = new List<KeyValuePair<string, IEnumerable<string>>>
                                 {
                                 new KeyValuePair<string, IEnumerable<string>>(nameof(HttpStatusCode.Forbidden),
                                 new[] { "Access denied" })
                                 }
-                        }, new JsonSerializerSettings
-                        {
-                            ContractResolver = new CamelCasePropertyNamesContractResolver()
                         }));
                     },
 
@@ -91,10 +89,10 @@ public static class IdentityConfig
                     {
                         context.HandleResponse();
 
-                        context.Response.ContentType = "application/json";
+                        context.Response.ContentType = applicationJSONContentType;
                         context.Response.StatusCode = StatusCodes.Status401Unauthorized;
 
-                        await context.Response.WriteAsync(JsonConvert.SerializeObject(new ErrorResponse()
+                        await context.Response.WriteAsync(Serializer.Serialize(new ErrorResponse()
                         {
                             Errors = new List<KeyValuePair<string, IEnumerable<string>>>
                             {
@@ -102,9 +100,6 @@ public static class IdentityConfig
                                 //new[] { context?.ErrorDescription ?? "Unauthenticated request" })
                                 new[] { "Your login has expired, please login again" })
                             }
-                        }, new JsonSerializerSettings
-                        {
-                            ContractResolver = new CamelCasePropertyNamesContractResolver()
                         }));
                     }
                 };

@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Newtonsoft.Json;
+﻿using Inexis.Clean.Architecture.Template.SharedKernal.Helpers;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Inexis.Clean.Architecture.Template.Persistence.AuditSetup;
 
@@ -31,9 +31,9 @@ internal sealed class AuditEntry
             TableName = TableName,
             CreatedOn = DateTimeOffset.UtcNow,
             PrimaryKey = PrimaryKey!,
-            OldValues = OldValues.Count == 0 ? null : JsonConvert.SerializeObject(OldValues),
-            NewValues = NewValues.Count == 0 ? null : JsonConvert.SerializeObject(NewValues),
-            AffectedColumns = ChangedColumns.Count == 0 ? null : JsonConvert.SerializeObject(ChangedColumns),
+            OldValues = OldValues.Count == 0 ? null : Serializer.Serialize(OldValues),
+            NewValues = NewValues.Count == 0 ? null : Serializer.Serialize(NewValues),
+            AffectedColumns = ChangedColumns.Count == 0 ? null : Serializer.Serialize(ChangedColumns),
         };
         return audit;
     }

@@ -1,5 +1,5 @@
-﻿using Inexis.Clean.Architecture.Template.Application.Security.Interfaces;
-using Inexis.Clean.Architecture.Template.Application.Security;
+﻿using Inexis.Clean.Architecture.Template.Application.Security;
+using Inexis.Clean.Architecture.Template.Application.Security.Interfaces;
 using Inexis.Clean.Architecture.Template.SharedKernal.Validators;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -19,11 +19,11 @@ public static class ApplicationServiceRegistration
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
         services.TryAddScoped<IModelValidator, Validator>();
+
         services.TryAddScoped<ITokenBuilder, TokenBuilder>();
         services.TryAddScoped<IPermissionService, PermissionService>();
         services.TryAddScoped<IUserRoleService, UserRoleService>();
         services.TryAddScoped<IUserRolePermissionFacadeService, UserRolePermissionFacadeService>();
-
 
         return services;
     }

@@ -16,7 +16,7 @@ public static class PersistenceServiceRegistration
     {
         services.AddDbContext<AppDbContext>(options =>
            options.UseSqlServer(configuration.GetConnectionString(AppConstants.Database.APIDbConnectionName))
-           .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
+                  .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
 
         services.TryAddScoped<IUserSecurityRespository, UserSecurityRespository>();
         services.TryAddScoped<IUnitOfWork, UnitOfWork>();

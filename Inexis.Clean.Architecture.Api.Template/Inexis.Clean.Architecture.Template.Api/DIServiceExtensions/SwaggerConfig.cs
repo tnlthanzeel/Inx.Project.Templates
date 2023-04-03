@@ -1,8 +1,8 @@
 ﻿using Inexis.Clean.Architecture.Template.SharedKernal.Models;
 using Microsoft.OpenApi.Models;
-using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
+using System.Text.Json.Serialization;
 
 namespace Inexis.Clean.Architecture.Template.Api.DIServiceExtensions;
 

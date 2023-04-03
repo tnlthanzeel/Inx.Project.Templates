@@ -1,7 +1,7 @@
 ﻿using FluentValidation.Results;
 using Inexis.Clean.Architecture.Template.SharedKernal.Exceptions;
-using Newtonsoft.Json;
 using System.Net;
+using System.Text.Json.Serialization;
 
 namespace Inexis.Clean.Architecture.Template.SharedKernal.Responses;
 

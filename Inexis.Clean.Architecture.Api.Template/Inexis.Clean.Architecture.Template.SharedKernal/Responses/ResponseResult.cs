@@ -1,5 +1,5 @@
 ﻿using FluentValidation.Results;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Inexis.Clean.Architecture.Template.SharedKernal.Responses;
 

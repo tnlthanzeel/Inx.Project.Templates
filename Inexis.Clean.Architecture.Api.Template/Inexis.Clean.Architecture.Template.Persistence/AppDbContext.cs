@@ -1,6 +1,7 @@
 ﻿using Inexis.Clean.Architecture.Template.Domain.Entities.IdentityUserEntities;
 using Inexis.Clean.Architecture.Template.Persistence.AuditSetup;
 using Inexis.Clean.Architecture.Template.SharedKernal.Interfaces;
+using Inexis.Clean.Architecture.Template.SharedKernal.Models;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -55,6 +56,57 @@ public class AppDbContext : IdentityDbContext<ApplicationUser, Role, Guid, UserC
         }
 
         auditTable.AddRange(auditEntries);
+    }
+
+    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+    {
+        await DispatchPrePersistantDomainEvents();
+
+        int result = await base.SaveChangesAsync(cancellationToken);
+
+        await DispatchPostPersistantDomainEvents();
+
+        return result;
+    }
+
+    private async Task DispatchPostPersistantDomainEvents()
+    {
+        if (_dispatcher == null) return;
+
+        var entitiesWithPostEvents = ChangeTracker.Entries<EntityBase>()
+           .Select(e => e.Entity)
+           .Where(e => e.DomainEvents.Any(a => a.IsPrePersistantDomainEvent == false))
+           .ToArray();
+
+        await _dispatcher.DispatchAndClearEvents(entitiesWithPostEvents, isPrePersistantDomainEvent: false);
+    }
+
+    private async Task DispatchPrePersistantDomainEvents()
+    {
+        if (_dispatcher == null) return;
+
+        var entitiesWithPreEvents = ChangeTracker.Entries<EntityBase>()
+          .Select(e => e.Entity)
+          .Where(e => e.DomainEvents.Any(w => w.IsPrePersistantDomainEvent))
+          .ToArray();
+
+        await _dispatcher.DispatchAndClearEvents(entitiesWithPreEvents, isPrePersistantDomainEvent: true);
+    }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        builder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+
+        builder.ApplyCommanConfigurations();
+
+        ApplyGlobalFilters(builder);
+
+        base.OnModelCreating(builder);
+    }
+
+    private void ApplyGlobalFilters(ModelBuilder builder)
+    {
+
     }
 
     private Audit? OnBeforeSaveChanges(Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry entry, Guid batchId)

@@ -8,8 +8,6 @@ public interface ILoggedInUserService
 
     string? UserTimeZone { get; }
 
-    List<Guid> CompanyIds { get; }
-
     string? UserRole { get; }
 
     bool IsAdminUser();

@@ -11,8 +11,7 @@ public static class AppConstants
 
     public static class Database
     {
-        public const string APIDbConnectionName = "VPMSSqlDbConnection";
-        public const string QBDbConnectionName = "VPMSQBSqlDbConnection";
+        public const string APIDbConnectionName = "MSSQLDbConnection";
     }
 
     public static class StringLengths
