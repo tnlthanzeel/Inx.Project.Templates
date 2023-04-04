@@ -5,7 +5,8 @@
         "WebApi"
     ],
     "identity": "Inexis.Clean.Architecture.Api.Template",
-    "name": "Inexis Clean Architecture - Base API",
+    "name": "Inexis - Base API",
+    "logo": "inexis.png",
     "description": "The template conatains a full solution to get started with an API project",
     "shortName": "inx-api",
     "sourceName": "Inexis.Clean.Architecture.Template",

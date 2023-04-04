@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Inexis.Clean.Architecture.Template.Application\Inexis.Clean.Architecture.Template.Application.csproj" />
     <ProjectReference Include="..\Inexis.Clean.Architecture.Template.SharedKernal\Inexis.Clean.Architecture.Template.SharedKernal.csproj" />
   </ItemGroup>
 

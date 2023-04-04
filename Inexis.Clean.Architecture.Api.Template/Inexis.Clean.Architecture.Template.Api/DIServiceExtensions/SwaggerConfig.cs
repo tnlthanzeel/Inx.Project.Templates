@@ -40,7 +40,7 @@ internal static class SwaggerConfig
             c.SwaggerDoc("v1", new OpenApiInfo
             {
                 Version = "v1",
-                Title = "VPMS API",
+                Title = "Inexis.Clean.Architecture.Template API",
 
             });
 

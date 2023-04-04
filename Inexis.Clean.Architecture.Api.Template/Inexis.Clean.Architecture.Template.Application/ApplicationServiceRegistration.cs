@@ -20,6 +20,7 @@ public static class ApplicationServiceRegistration
 
         services.TryAddScoped<IModelValidator, Validator>();
 
+        services.TryAddScoped<ISecurityService, SecurityService>();
         services.TryAddScoped<ITokenBuilder, TokenBuilder>();
         services.TryAddScoped<IPermissionService, PermissionService>();
         services.TryAddScoped<IUserRoleService, UserRoleService>();

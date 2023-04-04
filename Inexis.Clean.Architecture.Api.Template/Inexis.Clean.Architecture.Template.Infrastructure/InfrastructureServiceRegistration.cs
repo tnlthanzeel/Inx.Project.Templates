@@ -1,4 +1,6 @@
-﻿using Inexis.Clean.Architecture.Template.SharedKernal.Interfaces;
+﻿using Inexis.Clean.Architecture.Template.Application.CommonInterfaces;
+using Inexis.Clean.Architecture.Template.Infrastructure.NotificationServices;
+using Inexis.Clean.Architecture.Template.SharedKernal.Interfaces;
 using Inexis.Clean.Architecture.Template.SharedKernal.Models;
 using Inexis.Clean.Architecture.Template.SharedKernal.Validators;
 using Microsoft.Extensions.Configuration;
@@ -18,6 +20,7 @@ public static class InfrastructureServiceRegistration
         });
 
         services.TryAddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
+        services.AddScoped<IEmailService, EmailService>();
 
         return services;
     }
