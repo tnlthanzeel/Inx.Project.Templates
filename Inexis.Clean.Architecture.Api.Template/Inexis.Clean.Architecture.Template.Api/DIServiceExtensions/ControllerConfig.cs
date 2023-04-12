@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using FluentValidation.AspNetCore;
 using Inexis.Clean.Architecture.Template.Application;
 using Inexis.Clean.Architecture.Template.SharedKernal.Responses;
 using MicroElements.Swashbuckle.FluentValidation.AspNetCore;

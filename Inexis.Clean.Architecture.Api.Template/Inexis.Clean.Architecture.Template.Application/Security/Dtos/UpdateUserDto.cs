@@ -5,7 +5,6 @@ public sealed record UpdateUserDto
     string Email,
     string FirstName,
     string LastName,
-    IEnumerable<Guid> CompanyIds,
     string Role,
     string TimeZone,
     IEnumerable<string> Permissions);

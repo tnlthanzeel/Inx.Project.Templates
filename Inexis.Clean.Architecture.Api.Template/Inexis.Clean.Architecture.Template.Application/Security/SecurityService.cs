@@ -86,7 +86,6 @@ public sealed class SecurityService : ISecurityService
                                                 model.Role,
                                                 model.FirstName,
                                                 model.LastName,
-                                                model.CompanyIds,
                                                 model.Permissions,
                                                 model.TimeZone,
                                                 token);

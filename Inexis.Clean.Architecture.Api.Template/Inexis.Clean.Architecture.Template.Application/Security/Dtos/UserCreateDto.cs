@@ -9,7 +9,6 @@ public record UserCreateDto(
     string LastName,
     string Role,
     string TimeZone,
-    IEnumerable<Guid> CompanyIds,
     IEnumerable<string> Permissions
     );
 

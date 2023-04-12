@@ -9,7 +9,6 @@ public sealed class UserProfileDto
     public string LastName { init; get; } = null!;
     public string TimeZone { init; get; } = null!;
 
-    public IReadOnlyList<string> CompanyNames { get; init; } = new List<string>();
     public IReadOnlyList<string> Roles { get; private set; } = new List<string>();
     public IReadOnlyList<ScheduleUserNotification> NotificationSchedules { get; init; } = new List<ScheduleUserNotification>();
 

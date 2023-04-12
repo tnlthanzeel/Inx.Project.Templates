@@ -30,7 +30,7 @@ public sealed class UserSecurityRespository : BaseRepository, IUserSecurityRespo
 
     #region User
 
-    public async Task<ResponseResult<UserDto>> CreateUser(string userName, string password, string email, string role, string firstName, string lastName, IEnumerable<Guid> companyIds, IEnumerable<string> permissions, string timeZone, CancellationToken token)
+    public async Task<ResponseResult<UserDto>> CreateUser(string userName, string password, string email, string role, string firstName, string lastName, IEnumerable<string> permissions, string timeZone, CancellationToken token)
     {
         var isUserNameTaken = await _userManager.Users
                                                 .IgnoreQueryFilters()
@@ -208,25 +208,6 @@ public sealed class UserSecurityRespository : BaseRepository, IUserSecurityRespo
 
         return new ResponseResult();
     }
-
-    public async Task<bool> HasAccessToCompanies(Guid userId, List<Guid> companyIds, CancellationToken cancellationToken = default)
-    {
-        List<SqlParameter> parms = new()
-            {
-                new SqlParameter { ParameterName = "@UserProfileId", Value = userId.ToString() }
-            };
-
-        var userAssignedCompanies = await _dbContext.Set<SP_GetUserComapanies>()
-                                                    .FromSqlRaw("EXEC SP_GetUserComapanies @UserProfileId", parms.ToArray())
-                                                    .ToListAsync(cancellationToken);
-
-        var userAssignedCompanyIds = userAssignedCompanies.Select(s => s.CompanyId).ToList();
-
-        var areCompaniesValidForUser = companyIds.All(c => userAssignedCompanyIds.Contains(c));
-
-        return areCompaniesValidForUser;
-    }
-
 
     public async Task<string> GeneratePasswordResetTokenAsync(ApplicationUser user)
     {
@@ -482,15 +463,5 @@ public sealed class UserSecurityRespository : BaseRepository, IUserSecurityRespo
         }).ToList();
 
         return validationResult;
-    }
-
-    public Task<bool> HasAccessToCompany(Guid userId, Guid companyId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<IReadOnlyList<UserKeyValue>> GetUsersForPermissionByCompanyId(Guid companyId, string? permission)
-    {
-        throw new NotImplementedException();
     }
 }

@@ -22,7 +22,7 @@ public interface IUserSecurityRespository : IBaseRepository
 
     Task<ApplicationUser?> FindByEmail(string email);
 
-    Task<ResponseResult<UserDto>> CreateUser(string userName, string password, string email, string role, string firstName, string lastName, IEnumerable<Guid> companyIds, IEnumerable<string> permissions, string timeZone, CancellationToken token);
+    Task<ResponseResult<UserDto>> CreateUser(string userName, string password, string email, string role, string firstName, string lastName,  IEnumerable<string> permissions, string timeZone, CancellationToken token);
 
     Task<ApplicationUser?> GetUser(Guid id, CancellationToken token, bool asTracking = false);
 
@@ -58,13 +58,8 @@ public interface IUserSecurityRespository : IBaseRepository
 
     Task<bool> IsInRoleAsync(ApplicationUser user, string roleName);
 
-    Task<bool> HasAccessToCompany(Guid userId, Guid companyId);
-
-    Task<bool> HasAccessToCompanies(Guid userId, List<Guid> companyIds, CancellationToken cancellationToken = default);
-
     Task<TResult?> GetUserByIdWithProjectionSpec<TResult>(ISpecification<ApplicationUser, TResult> specification, CancellationToken token);
 
-    Task<IReadOnlyList<UserKeyValue>> GetUsersForPermissionByCompanyId(Guid companyId, string? permission);
     Task<string> GeneratePasswordResetTokenAsync(ApplicationUser user);
     Task<ResponseResult> ResetPassword(ApplicationUser user, string decodedPasswrdResetToken, string newPassword);
 }
