@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <Version>1.0.0</Version>
+    <PackageId>Inexis.Clean.Architecture.Template</PackageId>
+    <Title>A solution for API projects</Title>
+    <Authors>Thanzeel Jalaldeen</Authors>
+    <TargetFramework>net7.0</TargetFramework>
+    <Company>Inexis Consulting</Company>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+  </PropertyGroup>
+
+<ItemGroup>
+<Content Include="Inexis.Clean.Architecture.Api.Template\**\*" Exclude="Inexis.Clean.Architecture.Api.Template\**\bin\**;Inexis.Clean.Architecture.Api.Template\**\obj\**"/>
+<Content Remove="**\*"/>
+</ItemGroup>
+
+</Project>
