@@ -7,6 +7,9 @@ namespace Inexis.Clean.Architecture.Template.Persistence.Configurations.UserConf
 
 internal sealed class ApplicationUserConfig : IEntityTypeConfiguration<ApplicationUser>
 {
+    private const string defaultAdminEmail = "admin@project.com";
+    private const string adminUserName = "admin";
+
     public void Configure(EntityTypeBuilder<ApplicationUser> builder)
     {
         builder.HasQueryFilter(w => w.IsDeleted == false);
@@ -19,13 +22,13 @@ internal sealed class ApplicationUserConfig : IEntityTypeConfiguration<Applicati
         var user = new ApplicationUser
         {
             Id = AppConstants.SuperAdmin.SuperUserId,
-            UserName = "admin",
-            Email = "admin@vpms.com",
+            UserName = adminUserName,
+            Email = defaultAdminEmail,
             LockoutEnabled = false,
             PhoneNumber = "1234567890",
             CreatedOn = new DateTimeOffset(new DateTime(2022, 6, 30)),
-            NormalizedEmail = "admin@vpms.com".ToUpper(),
-            NormalizedUserName = "admin".ToUpper(),
+            NormalizedEmail = defaultAdminEmail.ToUpper(),
+            NormalizedUserName = adminUserName.ToUpper(),
             EmailConfirmed = true,
             SecurityStamp = "70428f75-0a6f-4d92-a2cd-ae4e0cdbd10f",
             ConcurrencyStamp = "70428f75-0a6f-4d92-a2cd-ae4e0cdbd10f",
