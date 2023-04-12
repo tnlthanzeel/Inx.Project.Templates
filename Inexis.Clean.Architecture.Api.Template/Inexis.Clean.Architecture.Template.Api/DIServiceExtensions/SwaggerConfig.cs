@@ -1,4 +1,5 @@
-﻿using Inexis.Clean.Architecture.Template.SharedKernal.Models;
+﻿using FluentValidation;
+using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
@@ -10,6 +11,8 @@ internal static class SwaggerConfig
 {
     public static void AddSwaggerConfig(this IServiceCollection services)
     {
+        services.AddFluentValidationRulesToSwagger();
+
         services.AddSwaggerGen(c =>
         {
             c.OrderActionsBy(cfg => $"{cfg.ActionDescriptor.RouteValues["controller"]}_{cfg.RelativePath}");
@@ -53,7 +56,7 @@ internal static class SwaggerConfig
         });
 
         // Enable the below if using newtonsoft
-       // services.AddSwaggerGenNewtonsoftSupport();
+        // services.AddSwaggerGenNewtonsoftSupport();
     }
 }
 

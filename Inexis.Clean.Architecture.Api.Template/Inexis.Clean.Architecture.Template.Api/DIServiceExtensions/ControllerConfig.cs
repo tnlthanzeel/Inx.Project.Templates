@@ -1,8 +1,6 @@
 ﻿using FluentValidation;
-using FluentValidation.AspNetCore;
 using Inexis.Clean.Architecture.Template.Application;
 using Inexis.Clean.Architecture.Template.SharedKernal.Responses;
-using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -58,11 +56,6 @@ public static class ControllerConfig
        });
 
         services.AddValidatorsFromAssemblyContaining<IFluentValidationAssemblyMarker>();
-
-        services.AddFluentValidationRulesToSwagger(configureRegistration: cfg =>
-        {
-            cfg.RegisterJsonSerializerOptions = false;
-        });
 
         services.AddOutputCache();
 
