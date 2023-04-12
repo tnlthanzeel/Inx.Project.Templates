@@ -11,7 +11,11 @@ internal static class SwaggerConfig
 {
     public static void AddSwaggerConfig(this IServiceCollection services)
     {
-        services.AddFluentValidationRulesToSwagger();
+        services.AddFluentValidationRulesToSwagger(configureRegistration: cfg =>
+        {
+            // Enable this if using Newtonsoft json for serialization 
+            //cfg.RegisterJsonSerializerOptions = false;
+        });
 
         services.AddSwaggerGen(c =>
         {
