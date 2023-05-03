@@ -225,6 +225,15 @@ public sealed class UserSecurityRespository : BaseRepository, IUserSecurityRespo
         return new ResponseResult();
     }
 
+    public async Task<IReadOnlyList<IdentityUserRole<Guid>>> GetUsersInRole(Role role, CancellationToken cancellationToken = default)
+    {
+        var userRoles = await _dbContext.UserRoles.AsNoTracking()
+                                                  .Where(w => w.RoleId == role.Id)
+                                                  .ToListAsync(cancellationToken);
+
+        return userRoles.AsReadOnly();
+    }
+
     #endregion
 
     #region Roles

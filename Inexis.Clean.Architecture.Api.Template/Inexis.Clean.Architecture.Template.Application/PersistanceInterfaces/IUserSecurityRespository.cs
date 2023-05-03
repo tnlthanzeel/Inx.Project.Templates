@@ -62,4 +62,7 @@ public interface IUserSecurityRespository : IBaseRepository
 
     Task<string> GeneratePasswordResetTokenAsync(ApplicationUser user);
     Task<ResponseResult> ResetPassword(ApplicationUser user, string decodedPasswrdResetToken, string newPassword);
+
+    Task<IReadOnlyList<IdentityUserRole<Guid>>> GetUsersInRole(Role role, CancellationToken cancellationToken = default);
+
 }

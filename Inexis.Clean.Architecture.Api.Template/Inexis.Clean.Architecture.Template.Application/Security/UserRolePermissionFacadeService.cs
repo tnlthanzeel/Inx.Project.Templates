@@ -8,50 +8,51 @@ using Inexis.Clean.Architecture.Template.SharedKernal.Responses;
 using Inexis.Clean.Architecture.Template.SharedKernal.Validators;
 using Microsoft.AspNetCore.Identity;
 
-namespace Inexis.Clean.Architecture.Template.Application.Security
+namespace Inexis.Clean.Architecture.Template.Application.Security;
+
+public sealed class UserRolePermissionFacadeService : IUserRolePermissionFacadeService
 {
-    public sealed class UserRolePermissionFacadeService : IUserRolePermissionFacadeService
+    private readonly IModelValidator _validator;
+    private readonly RoleManager<Role> _roleManager;
+    private readonly IUserSecurityRespository _userSecurityRespository;
+
+    public UserRolePermissionFacadeService(IModelValidator validator, RoleManager<Role> roleManager, IUserSecurityRespository userSecurityRespository)
     {
-        private readonly IModelValidator _validator;
-        private readonly RoleManager<Role> _roleManager;
-        private readonly IUserSecurityRespository _userSecurityRespository;
+        _validator = validator;
+        _roleManager = roleManager;
+        _userSecurityRespository = userSecurityRespository;
+    }
 
-        public UserRolePermissionFacadeService(IModelValidator validator, RoleManager<Role> roleManager, IUserSecurityRespository userSecurityRespository)
-        {
-            _validator = validator;
-            _roleManager = roleManager;
-            _userSecurityRespository = userSecurityRespository;
-        }
+    public async Task<ResponseResult> UpdateRoleClaim(Guid roleId, UpdateRoleClaimsDto model, CancellationToken token)
+    {
+        var validationResult = await _validator.ValidateAsync<UpdateRoleClaimsDtoValidator, UpdateRoleClaimsDto>(model, token);
 
-        public async Task<ResponseResult> UpdateRoleClaim(Guid roleId, UpdateRoleClaimsDto model, CancellationToken token)
-        {
-            var validationResult = await _validator.ValidateAsync<UpdateRoleClaimsDtoValidator, UpdateRoleClaimsDto>(model, token);
+        if (validationResult.IsValid is false) return new ResponseResult(validationResult.Errors);
 
-            if (validationResult.IsValid is false) return new ResponseResult(validationResult.Errors);
+        var role = await _userSecurityRespository.GetRoleById(roleId, token);
 
-            var role = await _userSecurityRespository.GetRoleById(roleId, token);
+        if (role is null) return new ResponseResult(new BadRequestException(nameof(roleId), $"Invalid role id ({roleId})"));
 
-            if (role is null) return new ResponseResult(new BadRequestException(nameof(roleId), $"Invalid role id ({roleId})"));
+        await _userSecurityRespository.DeleteUserClaimsForRoleClaim(role);
 
-            var removedUserClaims = await _userSecurityRespository.DeleteUserClaimsForRoleClaim(role);
+        await _userSecurityRespository.DeleteRoleClaimsForRole(role);
 
-            await _userSecurityRespository.DeleteRoleClaimsForRole(role);
+        var distinctPermissions = model.Permissions.Distinct().ToList();
 
-            var distinctPermissions = model.Permissions.Distinct().ToList();
+        var newRoleClaims = _userSecurityRespository.AddRoleClaimsForRole(role.Id, distinctPermissions);
 
-            var newRoleClaims = _userSecurityRespository.AddRoleClaimsForRole(role.Id, distinctPermissions);
+        await _userSecurityRespository.SaveChangesAsync(token);
 
-            await _userSecurityRespository.SaveChangesAsync(token);
+        var usersInRole = await _userSecurityRespository.GetUsersInRole(role, token);
 
-            var userIds = removedUserClaims.Select(s => s.UserId).Distinct().ToList();
+        var userIds = usersInRole.Select(s => s.UserId).Distinct().ToList();
 
-            _userSecurityRespository.AddUserClaimsForRoleClaims(newRoleClaims, userIds);
+        _userSecurityRespository.AddUserClaimsForRoleClaims(newRoleClaims, userIds);
 
-            await _userSecurityRespository.MergeClaims(userIds, distinctPermissions);
+        await _userSecurityRespository.MergeClaims(userIds, distinctPermissions);
 
-            await _userSecurityRespository.SaveChangesAsync(token);
+        await _userSecurityRespository.SaveChangesAsync(token);
 
-            return new ResponseResult();
-        }
+        return new ResponseResult();
     }
 }
