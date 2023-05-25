@@ -34,4 +34,12 @@ public static class AppConstants
     {
         public const string RoleName = "Administrator";
     }
+
+    public static class QueueStorage
+    {
+        public static class QueueName
+        {
+            public const string EmailQueue = "email-queue";
+        }
+    }
 }
