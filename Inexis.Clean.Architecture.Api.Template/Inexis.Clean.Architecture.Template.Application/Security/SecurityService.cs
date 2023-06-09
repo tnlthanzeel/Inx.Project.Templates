@@ -41,15 +41,17 @@ public sealed class SecurityService : ISecurityService
 
     public async Task<ResponseResult<AuthenticatedUserDto>> AuthenticateUser(AuthenticateUserDto model, CancellationToken token)
     {
-        var user = await _userSecurityRepository.FindByEmail(model.Email);
+        ApplicationUser? user = await _userSecurityRepository.FindByEmail(model.Email);
 
         if (user is null) return new ResponseResult<AuthenticatedUserDto>(new UnauthorizedException("Invalid username or password"));
 
-        var signInResult = await _signInManager.PasswordSignInAsync(user.UserName, model.Password, false, lockoutOnFailure: false);
+        var signInResult = await _signInManager.PasswordSignInAsync(user.UserName!, model.Password, false, lockoutOnFailure: false);
 
         if (signInResult.Succeeded is false) return new ResponseResult<AuthenticatedUserDto>(new UnauthorizedException("Invalid username or password"));
 
         var appAUser = await _userSecurityRepository.GetUserBySpec(user.Id, token, new SingleUserSpec());
+
+        if (appAUser is null) return new(new NotFoundException(nameof(user), nameof(user), model.Email));
 
         var jwtToken = await _tokenBuilder.GenerateJwtTokenAsync(appAUser!, token);
 

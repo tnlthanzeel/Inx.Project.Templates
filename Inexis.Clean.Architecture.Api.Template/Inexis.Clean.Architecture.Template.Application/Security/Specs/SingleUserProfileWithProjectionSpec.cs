@@ -4,7 +4,7 @@ using Inexis.Clean.Architecture.Template.Domain.Entities.IdentityUserEntities;
 
 namespace Inexis.Clean.Architecture.Template.Application.Security.Specs;
 
-public sealed class SingleUserProfileWithProjectionSpec : Specification<ApplicationUser, UserProfileDto>, ISingleResultSpecification
+public sealed class SingleUserProfileWithProjectionSpec : Specification<ApplicationUser, UserProfileDto>
 {
     public SingleUserProfileWithProjectionSpec(Guid userId)
     {
