@@ -1,4 +1,4 @@
-﻿namespace Inexis.Clean.Architecture.Template.Core.Claims;
+﻿namespace Inexis.Clean.Architecture.Template.Core.Security.Claims;
 
 public sealed class CustomClaimTypes
 {

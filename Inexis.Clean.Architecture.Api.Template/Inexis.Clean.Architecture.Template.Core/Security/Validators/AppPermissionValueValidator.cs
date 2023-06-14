@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using Inexis.Clean.Architecture.Template.Core.ModulePermissions;
+using Inexis.Clean.Architecture.Template.Core.Security.ModulePermissions;
 
 namespace Inexis.Clean.Architecture.Template.Core.Security.Validators;
 

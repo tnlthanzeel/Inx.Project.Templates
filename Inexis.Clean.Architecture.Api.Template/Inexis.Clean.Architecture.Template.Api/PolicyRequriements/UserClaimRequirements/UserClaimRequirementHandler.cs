@@ -1,4 +1,4 @@
-﻿using Inexis.Clean.Architecture.Template.Core.Claims;
+﻿using Inexis.Clean.Architecture.Template.Core.Security.Claims;
 using Inexis.Clean.Architecture.Template.Core.Security.Interfaces;
 using Inexis.Clean.Architecture.Template.SharedKernal.Interfaces;
 using Microsoft.AspNetCore.Authorization;

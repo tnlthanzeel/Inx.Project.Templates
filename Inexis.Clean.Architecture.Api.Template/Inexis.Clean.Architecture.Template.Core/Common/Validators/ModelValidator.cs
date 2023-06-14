@@ -2,13 +2,13 @@
 using FluentValidation.Results;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Inexis.Clean.Architecture.Template.SharedKernal.Validators;
+namespace Inexis.Clean.Architecture.Template.Core.Common.Validators;
 
-public sealed class Validator : IModelValidator
+public sealed class ModelValidator : IModelValidator
 {
     private readonly IServiceProvider _serviceProvider;
 
-    public Validator(IServiceProvider serviceProvider)
+    public ModelValidator(IServiceProvider serviceProvider)
     {
         _serviceProvider = serviceProvider;
     }

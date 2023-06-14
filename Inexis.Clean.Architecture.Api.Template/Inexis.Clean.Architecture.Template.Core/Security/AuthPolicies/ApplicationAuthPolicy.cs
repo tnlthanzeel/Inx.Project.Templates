@@ -1,6 +1,6 @@
-﻿using Inexis.Clean.Architecture.Template.Core.Claims;
+﻿using Inexis.Clean.Architecture.Template.Core.Security.Claims;
 
-namespace Inexis.Clean.Architecture.Template.Core.AuthPolicies;
+namespace Inexis.Clean.Architecture.Template.Core.Security.AuthPolicies;
 
 public sealed class ApplicationAuthPolicy
 {

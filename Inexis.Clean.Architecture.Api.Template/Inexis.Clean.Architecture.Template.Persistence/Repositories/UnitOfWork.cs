@@ -1,4 +1,4 @@
-﻿using Inexis.Clean.Architecture.Template.Core.CommonInterfaces;
+﻿using Inexis.Clean.Architecture.Template.Core.Common.Interfaces;
 
 namespace Inexis.Clean.Architecture.Template.Persistence.Repositories;
 

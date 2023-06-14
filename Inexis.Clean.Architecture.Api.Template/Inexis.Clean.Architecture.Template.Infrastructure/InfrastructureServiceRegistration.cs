@@ -1,4 +1,4 @@
-﻿using Inexis.Clean.Architecture.Template.Core.CommonInterfaces;
+﻿using Inexis.Clean.Architecture.Template.Core.Common.Interfaces;
 using Inexis.Clean.Architecture.Template.Infrastructure.NotificationServices;
 using Inexis.Clean.Architecture.Template.SharedKernal.Interfaces;
 using Inexis.Clean.Architecture.Template.SharedKernal.Models;

@@ -1,6 +1,6 @@
-﻿using Inexis.Clean.Architecture.Template.Core.CommonDtos;
+﻿using Inexis.Clean.Architecture.Template.Core.Common.Dtos;
 
-namespace Inexis.Clean.Architecture.Template.Core.CommonInterfaces;
+namespace Inexis.Clean.Architecture.Template.Core.Common.Interfaces;
 
 public interface IEmailService
 {

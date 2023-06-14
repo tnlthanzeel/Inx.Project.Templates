@@ -1,6 +1,6 @@
 ﻿using FluentValidation.Results;
 
-namespace Inexis.Clean.Architecture.Template.SharedKernal.Validators;
+namespace Inexis.Clean.Architecture.Template.Core.Common.Validators;
 
 public interface IModelValidator
 {

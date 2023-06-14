@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Inexis.Clean.Architecture.Template.Core.CommonDtos;
+using Inexis.Clean.Architecture.Template.Core.Common.Dtos;
 using Inexis.Clean.Architecture.Template.SharedKernal;
 
-namespace Inexis.Clean.Architecture.Template.Core.CommonValidators;
+namespace Inexis.Clean.Architecture.Template.Core.Common.Validators;
 
 public sealed class AddressValidator : AbstractValidator<AddressDto>
 {

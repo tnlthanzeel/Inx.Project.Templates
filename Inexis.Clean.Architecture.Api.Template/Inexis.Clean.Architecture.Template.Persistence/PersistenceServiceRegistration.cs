@@ -1,4 +1,4 @@
-﻿using Inexis.Clean.Architecture.Template.Core.CommonInterfaces;
+﻿using Inexis.Clean.Architecture.Template.Core.Common.Interfaces;
 using Inexis.Clean.Architecture.Template.Core.Security.Interfaces;
 using Inexis.Clean.Architecture.Template.Persistence.Repositories;
 using Inexis.Clean.Architecture.Template.Persistence.Repositories.Security;

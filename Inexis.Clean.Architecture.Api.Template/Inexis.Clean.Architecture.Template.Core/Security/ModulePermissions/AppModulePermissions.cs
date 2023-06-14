@@ -1,6 +1,6 @@
-﻿using Inexis.Clean.Architecture.Template.Core.Claims;
+﻿using Inexis.Clean.Architecture.Template.Core.Security.Claims;
 
-namespace Inexis.Clean.Architecture.Template.Core.ModulePermissions;
+namespace Inexis.Clean.Architecture.Template.Core.Security.ModulePermissions;
 
 public sealed record PermissionSet(string DisplayName, string Key);
 

@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Inexis.Clean.Architecture.Template.Core.CommonValidators;
+namespace Inexis.Clean.Architecture.Template.Core.Common.Validators;
 
 public static class PasswordValidator
 {

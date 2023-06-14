@@ -1,5 +1,5 @@
-﻿using Inexis.Clean.Architecture.Template.Core.CommonDtos;
-using Inexis.Clean.Architecture.Template.Core.CommonInterfaces;
+﻿using Inexis.Clean.Architecture.Template.Core.Common.Dtos;
+using Inexis.Clean.Architecture.Template.Core.Common.Interfaces;
 
 namespace Inexis.Clean.Architecture.Template.Infrastructure.NotificationServices;
 

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
-using Inexis.Clean.Architecture.Template.Core.CommonDtos;
-using Inexis.Clean.Architecture.Template.Core.CommonInterfaces;
+using Inexis.Clean.Architecture.Template.Core.Common.Dtos;
+using Inexis.Clean.Architecture.Template.Core.Common.Interfaces;
+using Inexis.Clean.Architecture.Template.Core.Common.Validators;
 using Inexis.Clean.Architecture.Template.Core.Security.Dtos;
 using Inexis.Clean.Architecture.Template.Core.Security.Entities.IdentityUserEntities;
 using Inexis.Clean.Architecture.Template.Core.Security.Filters;
@@ -11,7 +12,6 @@ using Inexis.Clean.Architecture.Template.SharedKernal.Exceptions;
 using Inexis.Clean.Architecture.Template.SharedKernal.Interfaces;
 using Inexis.Clean.Architecture.Template.SharedKernal.Models;
 using Inexis.Clean.Architecture.Template.SharedKernal.Responses;
-using Inexis.Clean.Architecture.Template.SharedKernal.Validators;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 

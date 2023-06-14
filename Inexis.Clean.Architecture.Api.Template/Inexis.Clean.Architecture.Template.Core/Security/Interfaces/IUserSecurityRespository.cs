@@ -1,5 +1,5 @@
 ﻿using Ardalis.Specification;
-using Inexis.Clean.Architecture.Template.Core.CommonInterfaces;
+using Inexis.Clean.Architecture.Template.Core.Common.Interfaces;
 using Inexis.Clean.Architecture.Template.Core.Security.Dtos;
 using Inexis.Clean.Architecture.Template.Core.Security.Entities.IdentityUserEntities;
 using Inexis.Clean.Architecture.Template.SharedKernal.Models;

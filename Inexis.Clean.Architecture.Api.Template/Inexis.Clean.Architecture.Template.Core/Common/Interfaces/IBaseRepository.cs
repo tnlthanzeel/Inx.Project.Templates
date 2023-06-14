@@ -1,4 +1,4 @@
-﻿namespace Inexis.Clean.Architecture.Template.Core.CommonInterfaces;
+﻿namespace Inexis.Clean.Architecture.Template.Core.Common.Interfaces;
 
 public interface IBaseRepository
 {

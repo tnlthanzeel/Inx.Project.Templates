@@ -1,9 +1,9 @@
-﻿using Inexis.Clean.Architecture.Template.Core.Security.Dtos;
+﻿using Inexis.Clean.Architecture.Template.Core.Common.Validators;
+using Inexis.Clean.Architecture.Template.Core.Security.Dtos;
 using Inexis.Clean.Architecture.Template.Core.Security.Interfaces;
 using Inexis.Clean.Architecture.Template.Core.Security.Validators;
 using Inexis.Clean.Architecture.Template.SharedKernal.Exceptions;
 using Inexis.Clean.Architecture.Template.SharedKernal.Responses;
-using Inexis.Clean.Architecture.Template.SharedKernal.Validators;
 
 namespace Inexis.Clean.Architecture.Template.Core.Security;
 

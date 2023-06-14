@@ -1,4 +1,4 @@
-﻿namespace Inexis.Clean.Architecture.Template.Core.CommonDtos;
+﻿namespace Inexis.Clean.Architecture.Template.Core.Common.Dtos;
 
 public record AddressDto
 {
