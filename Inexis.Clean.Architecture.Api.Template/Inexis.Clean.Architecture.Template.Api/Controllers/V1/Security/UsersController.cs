@@ -1,4 +1,4 @@
-﻿using Inexis.Clean.Architecture.Template.Core.AuthPolicies;
+﻿using Inexis.Clean.Architecture.Template.Core.Security.AuthPolicies;
 using Inexis.Clean.Architecture.Template.Core.Security.Dtos;
 using Inexis.Clean.Architecture.Template.Core.Security.Filters;
 using Inexis.Clean.Architecture.Template.Core.Security.Interfaces;

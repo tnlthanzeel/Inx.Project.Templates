@@ -1,6 +1,6 @@
 ﻿using Inexis.Clean.Architecture.Template.Api.PolicyRequriements.UserClaimRequirements;
-using Inexis.Clean.Architecture.Template.Core.AuthPolicies;
 using Inexis.Clean.Architecture.Template.Core.Claims;
+using Inexis.Clean.Architecture.Template.Core.Security.AuthPolicies;
 using Microsoft.AspNetCore.Authorization;
 
 namespace Inexis.Clean.Architecture.Template.Api.Policies;
