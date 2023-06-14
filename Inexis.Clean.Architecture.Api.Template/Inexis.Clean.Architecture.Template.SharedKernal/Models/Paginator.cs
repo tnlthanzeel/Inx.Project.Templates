@@ -31,7 +31,7 @@ public sealed class Paginator
         }
         set
         {
-            _page = value < 1 ? 1 : value;
+            _page = value < 1 ? _page : value;
         }
     }
 }
