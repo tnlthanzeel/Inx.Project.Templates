@@ -1,5 +1,4 @@
-﻿using Inexis.Clean.Architecture.Template.Core.PersistanceInterfaces;
-using Inexis.Clean.Architecture.Template.Core.Security.Dtos;
+﻿using Inexis.Clean.Architecture.Template.Core.Security.Dtos;
 using Inexis.Clean.Architecture.Template.Core.Security.Entities.IdentityUserEntities;
 using Inexis.Clean.Architecture.Template.Core.Security.Interfaces;
 using Inexis.Clean.Architecture.Template.Core.Security.Validators;

@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
-using Inexis.Clean.Architecture.Template.Core.PersistanceInterfaces;
 using Inexis.Clean.Architecture.Template.Core.Security.Dtos;
+using Inexis.Clean.Architecture.Template.Core.Security.Interfaces;
 
 namespace Inexis.Clean.Architecture.Template.Core.Security.Validators;
 

@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using Inexis.Clean.Architecture.Template.Core.CommonValidators;
-using Inexis.Clean.Architecture.Template.Core.PersistanceInterfaces;
 using Inexis.Clean.Architecture.Template.Core.Security.Dtos;
+using Inexis.Clean.Architecture.Template.Core.Security.Interfaces;
 using Inexis.Clean.Architecture.Template.SharedKernal.Extensions;
 
 namespace Inexis.Clean.Architecture.Template.Core.Security.Validators;

@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Inexis.Clean.Architecture.Template.Core.CommonDtos;
 using Inexis.Clean.Architecture.Template.Core.CommonInterfaces;
-using Inexis.Clean.Architecture.Template.Core.PersistanceInterfaces;
 using Inexis.Clean.Architecture.Template.Core.Security.Dtos;
 using Inexis.Clean.Architecture.Template.Core.Security.Entities.IdentityUserEntities;
 using Inexis.Clean.Architecture.Template.Core.Security.Filters;

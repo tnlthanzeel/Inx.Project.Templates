@@ -1,4 +1,5 @@
 ﻿using Ardalis.Specification;
+using Inexis.Clean.Architecture.Template.Core.CommonInterfaces;
 using Inexis.Clean.Architecture.Template.Core.Security.Dtos;
 using Inexis.Clean.Architecture.Template.Core.Security.Entities.IdentityUserEntities;
 using Inexis.Clean.Architecture.Template.SharedKernal.Models;
@@ -6,7 +7,7 @@ using Inexis.Clean.Architecture.Template.SharedKernal.Responses;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 
-namespace Inexis.Clean.Architecture.Template.Core.PersistanceInterfaces;
+namespace Inexis.Clean.Architecture.Template.Core.Security.Interfaces;
 
 public interface IUserSecurityRespository : IBaseRepository
 {
