@@ -1,4 +1,4 @@
-﻿namespace Inexis.Clean.Architecture.Template.Core.Security.Entities.IdentityUserEntities;
+﻿namespace Inexis.Clean.Architecture.Template.Core.Security.Entities;
 
 public sealed class UserProfile
 {

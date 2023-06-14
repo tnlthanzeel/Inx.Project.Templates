@@ -1,5 +1,5 @@
 ﻿using Inexis.Clean.Architecture.Template.Core.Security.Claims;
-using Inexis.Clean.Architecture.Template.Core.Security.Entities.IdentityUserEntities;
+using Inexis.Clean.Architecture.Template.Core.Security.Entities;
 using Inexis.Clean.Architecture.Template.Core.Security.Interfaces;
 using Inexis.Clean.Architecture.Template.SharedKernal;
 using Microsoft.Extensions.Options;

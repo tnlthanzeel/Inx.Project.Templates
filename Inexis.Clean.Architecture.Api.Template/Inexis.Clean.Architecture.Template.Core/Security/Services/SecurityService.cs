@@ -3,7 +3,7 @@ using Inexis.Clean.Architecture.Template.Core.Common.Dtos;
 using Inexis.Clean.Architecture.Template.Core.Common.Interfaces;
 using Inexis.Clean.Architecture.Template.Core.Common.Validators;
 using Inexis.Clean.Architecture.Template.Core.Security.Dtos;
-using Inexis.Clean.Architecture.Template.Core.Security.Entities.IdentityUserEntities;
+using Inexis.Clean.Architecture.Template.Core.Security.Entities;
 using Inexis.Clean.Architecture.Template.Core.Security.Filters;
 using Inexis.Clean.Architecture.Template.Core.Security.Interfaces;
 using Inexis.Clean.Architecture.Template.Core.Security.Specs;

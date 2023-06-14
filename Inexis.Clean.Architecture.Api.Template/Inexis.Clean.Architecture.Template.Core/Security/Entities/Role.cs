@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Inexis.Clean.Architecture.Template.Core.Security.Entities.IdentityUserEntities;
+namespace Inexis.Clean.Architecture.Template.Core.Security.Entities;
 
 public sealed class Role : IdentityRole<Guid>
 {

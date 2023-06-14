@@ -1,4 +1,4 @@
-﻿using Inexis.Clean.Architecture.Template.Core.Security.Entities.IdentityUserEntities;
+﻿using Inexis.Clean.Architecture.Template.Core.Security.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

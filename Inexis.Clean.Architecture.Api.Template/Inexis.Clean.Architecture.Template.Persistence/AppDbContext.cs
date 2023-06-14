@@ -1,4 +1,4 @@
-﻿using Inexis.Clean.Architecture.Template.Core.Security.Entities.IdentityUserEntities;
+﻿using Inexis.Clean.Architecture.Template.Core.Security.Entities;
 using Inexis.Clean.Architecture.Template.Persistence.AuditSetup;
 using Inexis.Clean.Architecture.Template.SharedKernal.Interfaces;
 using Inexis.Clean.Architecture.Template.SharedKernal.Models;

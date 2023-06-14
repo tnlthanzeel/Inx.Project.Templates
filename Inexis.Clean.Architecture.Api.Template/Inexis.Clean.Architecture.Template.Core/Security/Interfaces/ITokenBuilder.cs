@@ -1,4 +1,4 @@
-﻿using Inexis.Clean.Architecture.Template.Core.Security.Entities.IdentityUserEntities;
+﻿using Inexis.Clean.Architecture.Template.Core.Security.Entities;
 
 namespace Inexis.Clean.Architecture.Template.Core.Security.Interfaces;
 

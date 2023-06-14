@@ -3,6 +3,7 @@ using Ardalis.Specification.EntityFrameworkCore;
 using FluentValidation.Results;
 using Inexis.Clean.Architecture.Template.Core.Security.Claims;
 using Inexis.Clean.Architecture.Template.Core.Security.Dtos;
+using Inexis.Clean.Architecture.Template.Core.Security.Entities;
 using Inexis.Clean.Architecture.Template.Core.Security.Entities.IdentityUserEntities;
 using Inexis.Clean.Architecture.Template.Core.Security.Interfaces;
 using Inexis.Clean.Architecture.Template.Core.Security.ModulePermissions;

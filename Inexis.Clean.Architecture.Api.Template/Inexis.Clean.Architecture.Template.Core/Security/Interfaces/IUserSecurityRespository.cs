@@ -1,7 +1,7 @@
 ﻿using Ardalis.Specification;
 using Inexis.Clean.Architecture.Template.Core.Common.Interfaces;
 using Inexis.Clean.Architecture.Template.Core.Security.Dtos;
-using Inexis.Clean.Architecture.Template.Core.Security.Entities.IdentityUserEntities;
+using Inexis.Clean.Architecture.Template.Core.Security.Entities;
 using Inexis.Clean.Architecture.Template.SharedKernal.Models;
 using Inexis.Clean.Architecture.Template.SharedKernal.Responses;
 using Microsoft.AspNetCore.Identity;
