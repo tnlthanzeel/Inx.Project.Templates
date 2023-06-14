@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Inexis.Clean.Architecture.Template.SharedKernal.Interfaces;
+using Microsoft.AspNetCore.Identity;
 
 namespace Inexis.Clean.Architecture.Template.Core.Security.Entities;
 
-public sealed class Role : IdentityRole<Guid>
+public sealed class Role : IdentityRole<Guid>, IAggregateRoot
 {
     public Role() { }
 

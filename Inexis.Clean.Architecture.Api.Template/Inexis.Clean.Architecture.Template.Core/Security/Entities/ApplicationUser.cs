@@ -1,9 +1,9 @@
 ﻿using Inexis.Clean.Architecture.Template.SharedKernal.Interfaces;
 using Microsoft.AspNetCore.Identity;
 
-namespace Inexis.Clean.Architecture.Template.Core.Security.Entities.IdentityUserEntities;
+namespace Inexis.Clean.Architecture.Template.Core.Security.Entities;
 
-public sealed class ApplicationUser : IdentityUser<Guid>, ICreatedAudit, IUpdatedAudit, IDeletedAudit
+public sealed class ApplicationUser : IdentityUser<Guid>, IAggregateRoot, ICreatedAudit, IUpdatedAudit, IDeletedAudit
 {
     public string? CreatedBy { get; set; }
     public DateTimeOffset CreatedOn { get; set; } = DateTimeOffset.UtcNow;
