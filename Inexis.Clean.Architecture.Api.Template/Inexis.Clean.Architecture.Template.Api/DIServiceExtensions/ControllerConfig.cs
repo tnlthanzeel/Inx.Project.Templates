@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using Inexis.Clean.Architecture.Template.Application;
+using Inexis.Clean.Architecture.Template.Core;
 using Inexis.Clean.Architecture.Template.SharedKernal.Responses;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;

@@ -1,5 +1,5 @@
-﻿using Inexis.Clean.Architecture.Template.Application.PersistanceInterfaces;
-using Inexis.Clean.Architecture.Template.Domain.Claims;
+﻿using Inexis.Clean.Architecture.Template.Core.Claims;
+using Inexis.Clean.Architecture.Template.Core.PersistanceInterfaces;
 using Inexis.Clean.Architecture.Template.SharedKernal.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 

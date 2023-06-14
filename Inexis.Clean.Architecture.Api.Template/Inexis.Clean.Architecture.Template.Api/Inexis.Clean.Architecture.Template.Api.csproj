@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Inexis.Clean.Architecture.Template.Application\Inexis.Clean.Architecture.Template.Application.csproj" />
     <ProjectReference Include="..\Inexis.Clean.Architecture.Template.Infrastructure\Inexis.Clean.Architecture.Template.Infrastructure.csproj" />
     <ProjectReference Include="..\Inexis.Clean.Architecture.Template.Persistence\Inexis.Clean.Architecture.Template.Persistence.csproj" />
     <ProjectReference Include="..\Inexis.Clean.Architecture.Template.SharedKernal\Inexis.Clean.Architecture.Template.SharedKernal.csproj" />

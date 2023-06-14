@@ -1,11 +1,11 @@
 ﻿using Ardalis.Specification;
 using Ardalis.Specification.EntityFrameworkCore;
 using FluentValidation.Results;
-using Inexis.Clean.Architecture.Template.Application.PersistanceInterfaces;
-using Inexis.Clean.Architecture.Template.Application.Security.Dtos;
-using Inexis.Clean.Architecture.Template.Domain.Claims;
-using Inexis.Clean.Architecture.Template.Domain.Entities.IdentityUserEntities;
-using Inexis.Clean.Architecture.Template.Domain.ModulePermissions;
+using Inexis.Clean.Architecture.Template.Core.Claims;
+using Inexis.Clean.Architecture.Template.Core.ModulePermissions;
+using Inexis.Clean.Architecture.Template.Core.PersistanceInterfaces;
+using Inexis.Clean.Architecture.Template.Core.Security.Dtos;
+using Inexis.Clean.Architecture.Template.Core.Security.Entities.IdentityUserEntities;
 using Inexis.Clean.Architecture.Template.SharedKernal;
 using Inexis.Clean.Architecture.Template.SharedKernal.Exceptions;
 using Inexis.Clean.Architecture.Template.SharedKernal.Models;

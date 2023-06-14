@@ -1,5 +1,5 @@
-﻿using Inexis.Clean.Architecture.Template.Domain.Claims;
-using Inexis.Clean.Architecture.Template.Domain.Entities.IdentityUserEntities;
+﻿using Inexis.Clean.Architecture.Template.Core.Claims;
+using Inexis.Clean.Architecture.Template.Core.Security.Entities.IdentityUserEntities;
 using Inexis.Clean.Architecture.Template.SharedKernal;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

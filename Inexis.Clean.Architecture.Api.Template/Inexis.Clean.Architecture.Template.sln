@@ -9,12 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inexis.Clean.Architecture.T
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{64A13670-2598-4F0E-A058-9D9F34E73C30}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{13AA2BC0-BFDD-47EA-B13B-ABE798005DE4}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inexis.Clean.Architecture.Template.Application", "Inexis.Clean.Architecture.Template.Application\Inexis.Clean.Architecture.Template.Application.csproj", "{69B67F29-8A7A-469A-A3D1-797BB14B3CF5}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inexis.Clean.Architecture.Template.Domain", "Inexis.Clean.Architecture.Template.Domain\Inexis.Clean.Architecture.Template.Domain.csproj", "{A5432A12-ED88-47FC-8CE3-B75A2DFBA3F4}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{E4CF0654-7C24-4226-9FF0-F07048CFDA57}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inexis.Clean.Architecture.Template.Infrastructure", "Inexis.Clean.Architecture.Template.Infrastructure\Inexis.Clean.Architecture.Template.Infrastructure.csproj", "{D2DD76A8-D697-48AD-B31D-B86D66A29CDC}"
@@ -23,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inexis.Clean.Architecture.T
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AzureFunctionApps", "AzureFunctionApps", "{34C2ECD0-58C0-4BFF-8073-188BB6C2BA38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inexis.Clean.Architecture.Template.FunctionApp.CP", "Inexis.Clean.Architecture.Template.FunctionApp.CP\Inexis.Clean.Architecture.Template.FunctionApp.CP.csproj", "{FAC81326-29E0-4D76-A59F-F39B95490CD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inexis.Clean.Architecture.Template.FunctionApp.CP", "Inexis.Clean.Architecture.Template.FunctionApp.CP\Inexis.Clean.Architecture.Template.FunctionApp.CP.csproj", "{FAC81326-29E0-4D76-A59F-F39B95490CD5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inexis.Clean.Architecture.Template.Core", "Inexis.Clean.Architecture.Template.Core\Inexis.Clean.Architecture.Template.Core.csproj", "{0C8879FA-CC5C-45F9-A2F2-0C7E8080A6A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,14 +35,6 @@ Global
 		{4A65539F-4ED8-4C79-A753-68C1974EE2BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A65539F-4ED8-4C79-A753-68C1974EE2BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A65539F-4ED8-4C79-A753-68C1974EE2BF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{69B67F29-8A7A-469A-A3D1-797BB14B3CF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{69B67F29-8A7A-469A-A3D1-797BB14B3CF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{69B67F29-8A7A-469A-A3D1-797BB14B3CF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{69B67F29-8A7A-469A-A3D1-797BB14B3CF5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A5432A12-ED88-47FC-8CE3-B75A2DFBA3F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A5432A12-ED88-47FC-8CE3-B75A2DFBA3F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A5432A12-ED88-47FC-8CE3-B75A2DFBA3F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A5432A12-ED88-47FC-8CE3-B75A2DFBA3F4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D2DD76A8-D697-48AD-B31D-B86D66A29CDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D2DD76A8-D697-48AD-B31D-B86D66A29CDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2DD76A8-D697-48AD-B31D-B86D66A29CDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -59,6 +47,10 @@ Global
 		{FAC81326-29E0-4D76-A59F-F39B95490CD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAC81326-29E0-4D76-A59F-F39B95490CD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAC81326-29E0-4D76-A59F-F39B95490CD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C8879FA-CC5C-45F9-A2F2-0C7E8080A6A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C8879FA-CC5C-45F9-A2F2-0C7E8080A6A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C8879FA-CC5C-45F9-A2F2-0C7E8080A6A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C8879FA-CC5C-45F9-A2F2-0C7E8080A6A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,14 +58,12 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{DA5AA271-FC3A-482D-8C1D-A1E7DAF95DEF} = {64A13670-2598-4F0E-A058-9D9F34E73C30}
 		{4A65539F-4ED8-4C79-A753-68C1974EE2BF} = {64A13670-2598-4F0E-A058-9D9F34E73C30}
-		{13AA2BC0-BFDD-47EA-B13B-ABE798005DE4} = {64A13670-2598-4F0E-A058-9D9F34E73C30}
-		{69B67F29-8A7A-469A-A3D1-797BB14B3CF5} = {13AA2BC0-BFDD-47EA-B13B-ABE798005DE4}
-		{A5432A12-ED88-47FC-8CE3-B75A2DFBA3F4} = {13AA2BC0-BFDD-47EA-B13B-ABE798005DE4}
 		{E4CF0654-7C24-4226-9FF0-F07048CFDA57} = {64A13670-2598-4F0E-A058-9D9F34E73C30}
 		{D2DD76A8-D697-48AD-B31D-B86D66A29CDC} = {E4CF0654-7C24-4226-9FF0-F07048CFDA57}
 		{4DCC0E22-61FE-4161-BAC3-4927F9305605} = {E4CF0654-7C24-4226-9FF0-F07048CFDA57}
 		{34C2ECD0-58C0-4BFF-8073-188BB6C2BA38} = {64A13670-2598-4F0E-A058-9D9F34E73C30}
 		{FAC81326-29E0-4D76-A59F-F39B95490CD5} = {34C2ECD0-58C0-4BFF-8073-188BB6C2BA38}
+		{0C8879FA-CC5C-45F9-A2F2-0C7E8080A6A2} = {64A13670-2598-4F0E-A058-9D9F34E73C30}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BC8BF557-5319-40F3-B5DD-4701939D9616}

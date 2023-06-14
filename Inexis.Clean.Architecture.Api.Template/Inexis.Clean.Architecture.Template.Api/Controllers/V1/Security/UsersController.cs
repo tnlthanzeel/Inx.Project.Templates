@@ -1,7 +1,7 @@
-﻿using Inexis.Clean.Architecture.Template.Application.Security.Dtos;
-using Inexis.Clean.Architecture.Template.Application.Security.Filters;
-using Inexis.Clean.Architecture.Template.Application.Security.Interfaces;
-using Inexis.Clean.Architecture.Template.Domain.AuthPolicies;
+﻿using Inexis.Clean.Architecture.Template.Core.AuthPolicies;
+using Inexis.Clean.Architecture.Template.Core.Security.Dtos;
+using Inexis.Clean.Architecture.Template.Core.Security.Filters;
+using Inexis.Clean.Architecture.Template.Core.Security.Interfaces;
 using Inexis.Clean.Architecture.Template.SharedKernal.Models;
 using Inexis.Clean.Architecture.Template.SharedKernal.Responses;
 using Microsoft.AspNetCore.Authorization;

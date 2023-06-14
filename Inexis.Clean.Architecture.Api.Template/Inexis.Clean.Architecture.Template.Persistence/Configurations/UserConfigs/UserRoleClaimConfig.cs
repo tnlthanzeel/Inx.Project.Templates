@@ -1,4 +1,4 @@
-﻿using Inexis.Clean.Architecture.Template.Domain.Claims;
+﻿using Inexis.Clean.Architecture.Template.Core.Claims;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

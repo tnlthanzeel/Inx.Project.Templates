@@ -16,8 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Inexis.Clean.Architecture.Template.Application\Inexis.Clean.Architecture.Template.Application.csproj" />
-    <ProjectReference Include="..\Inexis.Clean.Architecture.Template.Domain\Inexis.Clean.Architecture.Template.Domain.csproj" />
+    <ProjectReference Include="..\Inexis.Clean.Architecture.Template.Core\Inexis.Clean.Architecture.Template.Core.csproj" />
   </ItemGroup>
 
 </Project>

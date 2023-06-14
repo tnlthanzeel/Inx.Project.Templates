@@ -1,7 +1,7 @@
 ﻿using Inexis.Clean.Architecture.Template.Api.Policies;
 using Inexis.Clean.Architecture.Template.Api.PolicyRequriements.UserClaimRequirements;
-using Inexis.Clean.Architecture.Template.Application.Security;
-using Inexis.Clean.Architecture.Template.Domain.Entities.IdentityUserEntities;
+using Inexis.Clean.Architecture.Template.Core.Security;
+using Inexis.Clean.Architecture.Template.Core.Security.Entities.IdentityUserEntities;
 using Inexis.Clean.Architecture.Template.Persistence;
 using Inexis.Clean.Architecture.Template.SharedKernal.Helpers;
 using Inexis.Clean.Architecture.Template.SharedKernal.Responses;

@@ -1,8 +1,8 @@
 using Inexis.Clean.Architecture.Template.Api.DIServiceExtensions;
 using Inexis.Clean.Architecture.Template.Api.Middleware;
 using Inexis.Clean.Architecture.Template.Api.Services;
-using Inexis.Clean.Architecture.Template.Application;
-using Inexis.Clean.Architecture.Template.Application.Security;
+using Inexis.Clean.Architecture.Template.Core;
+using Inexis.Clean.Architecture.Template.Core.Security;
 using Inexis.Clean.Architecture.Template.Infrastructure;
 using Inexis.Clean.Architecture.Template.Persistence;
 using Inexis.Clean.Architecture.Template.SharedKernal.Interfaces;
