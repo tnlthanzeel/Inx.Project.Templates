@@ -8,7 +8,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace Inexis.Clean.Architecture.Template.Core.Security;
+namespace Inexis.Clean.Architecture.Template.Core.Security.Services;
 
 public sealed class TokenBuilder : ITokenBuilder
 {

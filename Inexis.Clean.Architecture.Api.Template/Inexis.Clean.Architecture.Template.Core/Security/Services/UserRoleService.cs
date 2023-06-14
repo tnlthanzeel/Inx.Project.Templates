@@ -5,7 +5,7 @@ using Inexis.Clean.Architecture.Template.Core.Security.Validators;
 using Inexis.Clean.Architecture.Template.SharedKernal.Exceptions;
 using Inexis.Clean.Architecture.Template.SharedKernal.Responses;
 
-namespace Inexis.Clean.Architecture.Template.Core.Security;
+namespace Inexis.Clean.Architecture.Template.Core.Security.Services;
 
 public sealed class UserRoleService : IUserRoleService
 {

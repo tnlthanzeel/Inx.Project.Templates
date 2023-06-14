@@ -15,7 +15,7 @@ using Inexis.Clean.Architecture.Template.SharedKernal.Responses;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Inexis.Clean.Architecture.Template.Core.Security;
+namespace Inexis.Clean.Architecture.Template.Core.Security.Services;
 
 public sealed class SecurityService : ISecurityService
 {

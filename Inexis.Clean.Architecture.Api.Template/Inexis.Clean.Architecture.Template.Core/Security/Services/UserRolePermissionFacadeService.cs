@@ -7,7 +7,7 @@ using Inexis.Clean.Architecture.Template.SharedKernal.Exceptions;
 using Inexis.Clean.Architecture.Template.SharedKernal.Responses;
 using Microsoft.AspNetCore.Identity;
 
-namespace Inexis.Clean.Architecture.Template.Core.Security;
+namespace Inexis.Clean.Architecture.Template.Core.Security.Services;
 
 public sealed class UserRolePermissionFacadeService : IUserRolePermissionFacadeService
 {

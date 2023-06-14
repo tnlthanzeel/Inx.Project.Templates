@@ -1,6 +1,6 @@
 ﻿using Inexis.Clean.Architecture.Template.Core.Common.Validators;
-using Inexis.Clean.Architecture.Template.Core.Security;
 using Inexis.Clean.Architecture.Template.Core.Security.Interfaces;
+using Inexis.Clean.Architecture.Template.Core.Security.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System.Reflection;
