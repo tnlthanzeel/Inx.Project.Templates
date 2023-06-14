@@ -2,7 +2,7 @@
 
 public sealed class Paginator
 {
-    private int _size = 10;
+    private int _size = 100;
 
     /// <summary>
     /// The number of records to be returned. If less than 1 or greater than 100, PageSize will default to 100
