@@ -51,7 +51,7 @@ public static class IdentityConfig
         })
           .AddJwtBearer(options =>
             {
-                options.RequireHttpsMetadata = builder.Environment.IsDevelopment() ? false : true;
+                options.RequireHttpsMetadata = !builder.Environment.IsDevelopment();
                 options.SaveToken = false;
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
