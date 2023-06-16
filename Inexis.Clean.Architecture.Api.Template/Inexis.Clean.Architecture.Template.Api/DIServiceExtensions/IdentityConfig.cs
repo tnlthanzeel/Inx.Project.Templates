@@ -79,8 +79,7 @@ public static class IdentityConfig
                         {
                             Errors = new List<KeyValuePair<string, IEnumerable<string>>>
                                 {
-                                new KeyValuePair<string, IEnumerable<string>>(nameof(HttpStatusCode.Forbidden),
-                                new[] { "Access denied" })
+                                new (nameof(HttpStatusCode.Forbidden), new[] { "Access denied" })
                                 }
                         }));
                     },
@@ -96,9 +95,7 @@ public static class IdentityConfig
                         {
                             Errors = new List<KeyValuePair<string, IEnumerable<string>>>
                             {
-                                new KeyValuePair<string, IEnumerable<string>>(nameof(HttpStatusCode.Unauthorized),
-                                //new[] { context?.ErrorDescription ?? "Unauthenticated request" })
-                                new[] { "Your login has expired, please login again" })
+                                new (nameof(HttpStatusCode.Unauthorized), new[] { "Your login has expired, please login again" })
                             }
                         }));
                     }
@@ -109,10 +106,13 @@ public static class IdentityConfig
 
         services.AddAuthorization(options =>
         {
-            var authPolicyApplicators = typeof(Program).Assembly.ExportedTypes
-                  .Where(x => typeof(IAuthPolicyApplyer).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
-                  .Select(Activator.CreateInstance).Cast<IAuthPolicyApplyer>()
-                  .ToList();
+            var authPolicyApplicators = typeof(Program).Assembly
+                                                       .ExportedTypes
+                                                       .Where(x => typeof(IAuthPolicyApplyer)
+                                                       .IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
+                                                       .Select(Activator.CreateInstance)
+                                                       .Cast<IAuthPolicyApplyer>()
+                                                       .ToList();
 
             foreach (var authPolicyApplicator in authPolicyApplicators)
             {
