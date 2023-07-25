@@ -7,7 +7,8 @@ namespace Inexis.Clean.Architecture.Template.SharedKernal.Extensions;
 public static class TimeZoneExtension
 {
     private static readonly IReadOnlyList<TimeZoneModel> _timeZones = TimeZoneInfo.GetSystemTimeZones()
-                                                    .Select(tz => new TimeZoneModel(tz.DisplayName, tz.Id)).ToList();
+                                                                                  .Select(tz => new TimeZoneModel(tz.DisplayName, tz.Id))
+                                                                                  .ToList();
 
     public static ResponseResult<IReadOnlyList<TimeZoneModel>> GetAllTimeZone()
     {
@@ -16,9 +17,7 @@ public static class TimeZoneExtension
 
     public static bool IsTimeZoneAvailable(string id)
     {
-        var timeZone = TimeZoneInfo.FindSystemTimeZoneById(id);
-
-        return timeZone is not null;
+        return _timeZones.Any(x => x.Key == id);
     }
 
     public static DateTimeOffset GetLocalTime(this DateTimeOffset dateTimeOffset, string timeZoneId)
