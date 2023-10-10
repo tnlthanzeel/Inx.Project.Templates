@@ -2,7 +2,7 @@
 using Inexis.Clean.Architecture.Template.Core.Common.Validators;
 using Inexis.Clean.Architecture.Template.Core.Security.Dtos;
 using Inexis.Clean.Architecture.Template.Core.Security.Interfaces;
-using Inexis.Clean.Architecture.Template.SharedKernal.Extensions;
+using Inexis.Clean.Architecture.Template.SharedKernal.Helpers;
 
 namespace Inexis.Clean.Architecture.Template.Core.Security.Validators;
 
@@ -34,7 +34,7 @@ public sealed class UpdateUserDtoValidator : AbstractValidator<UpdateUserDto>
           .NotEmpty().WithMessage("TimeZone is required")
           .Must((model, timeZone) =>
           {
-              var isValidTimeZone = TimeZoneExtension.IsTimeZoneAvailable(timeZone);
+              var isValidTimeZone = TimeZoneHelper.IsTimeZoneAvailable(timeZone);
               return isValidTimeZone;
           }).WithMessage("Invalid Time zone");
     }
