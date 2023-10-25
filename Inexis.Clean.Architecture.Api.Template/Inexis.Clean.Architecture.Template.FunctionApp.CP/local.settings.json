@@ -1,7 +1,11 @@
 {
-    "IsEncrypted": false,
-    "Values": {
-        "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-        "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated"
-    }
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "SMTPEmailAddress": "<smpt enabled email>",
+    "SMTPEmailHost": "<host>",
+    "SMTPEmailUserName": "<username>",
+    "SMTPEmailPassword": "<password>"
+  }
 }
