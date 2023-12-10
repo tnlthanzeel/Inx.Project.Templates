@@ -7,8 +7,14 @@ namespace Inexis.Clean.Architecture.Template.SharedKernal.Responses;
 
 public class ResponseResult<T> : BaseResponse
 {
+    private static BadRequestException _badRequestException = new();
+    private static NotFoundException _notFoundException = new();
+    private static OperationFailedException _operationFailedException = new();
+    private static UnauthorizedException _unauthorizedException = new();
+
+
     [JsonIgnore]
-    public HttpStatusCode HttpStatusCode { get; protected init; }
+    public ApplicationException ApplicationException { get; }
 
     public ResponseResult(T? value, int totalRecordCount = 1) : base()
     {
@@ -19,7 +25,7 @@ public class ResponseResult<T> : BaseResponse
 
     public ResponseResult(IList<ValidationFailure> validationFailures) : base()
     {
-        HttpStatusCode = HttpStatusCode.BadRequest;
+        ApplicationException = _badRequestException;
         Success = false;
         Data = default;
 
@@ -31,7 +37,7 @@ public class ResponseResult<T> : BaseResponse
 
     public ResponseResult(IList<KeyValuePair<string, IEnumerable<string>>> validationFailures) : base()
     {
-        HttpStatusCode = HttpStatusCode.BadRequest;
+        ApplicationException = _badRequestException;
         Success = false;
         Data = default;
 
@@ -43,6 +49,7 @@ public class ResponseResult<T> : BaseResponse
 
     public ResponseResult(ApplicationException ex) : base()
     {
+        ApplicationException = ex;
         Success = false;
         Data = default;
 
@@ -51,27 +58,27 @@ public class ResponseResult<T> : BaseResponse
         switch (ex)
         {
             case BadRequestException e:
-                HttpStatusCode = HttpStatusCode.BadRequest;
+                ApplicationException = _badRequestException;
                 Errors.Add(new KeyValuePair<string, IEnumerable<string>>(e.PropertyName, errorMsg));
                 break;
 
             case ValidationException e:
-                HttpStatusCode = HttpStatusCode.BadRequest;
+                ApplicationException = _badRequestException;
                 Errors.AddRange(e.ValdationErrors);
                 break;
 
             case NotFoundException e:
-                HttpStatusCode = HttpStatusCode.NotFound;
+                ApplicationException = _notFoundException;
                 Errors.Add(new KeyValuePair<string, IEnumerable<string>>(e.PropertyName, errorMsg));
                 break;
 
             case OperationFailedException e:
-                HttpStatusCode = HttpStatusCode.BadRequest;
+                ApplicationException = _operationFailedException;
                 Errors.Add(new KeyValuePair<string, IEnumerable<string>>(e.PropertyName, errorMsg));
                 break;
 
             case UnauthorizedException:
-                HttpStatusCode = HttpStatusCode.Unauthorized;
+                ApplicationException = _unauthorizedException;
                 Errors.Add(new KeyValuePair<string, IEnumerable<string>>(nameof(HttpStatusCode.Unauthorized), errorMsg));
                 break;
 

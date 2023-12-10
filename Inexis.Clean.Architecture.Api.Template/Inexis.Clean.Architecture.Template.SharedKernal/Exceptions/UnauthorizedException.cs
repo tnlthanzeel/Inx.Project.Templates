@@ -2,6 +2,8 @@
 
 public sealed class UnauthorizedException : ApplicationException
 {
+    internal UnauthorizedException() { }
+
     public UnauthorizedException(string message) : base(message)
     {
     }
