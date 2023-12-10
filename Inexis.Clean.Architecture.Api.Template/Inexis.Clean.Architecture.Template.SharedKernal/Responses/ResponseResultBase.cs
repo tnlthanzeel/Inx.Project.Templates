@@ -14,7 +14,7 @@ public class ResponseResult<T> : BaseResponse
 
 
     [JsonIgnore]
-    public ApplicationException ApplicationException { get; }
+    public ApplicationException? ApplicationException { get; }
 
     public ResponseResult(T? value, int totalRecordCount = 1) : base()
     {
@@ -59,7 +59,7 @@ public class ResponseResult<T> : BaseResponse
         {
             case BadRequestException e:
                 ApplicationException = _badRequestException;
-                Errors.Add(new KeyValuePair<string, IEnumerable<string>>(e.PropertyName, errorMsg));
+                Errors.Add(new KeyValuePair<string, IEnumerable<string>>(e.PropertyName!, errorMsg));
                 break;
 
             case ValidationException e:
@@ -69,12 +69,12 @@ public class ResponseResult<T> : BaseResponse
 
             case NotFoundException e:
                 ApplicationException = _notFoundException;
-                Errors.Add(new KeyValuePair<string, IEnumerable<string>>(e.PropertyName, errorMsg));
+                Errors.Add(new KeyValuePair<string, IEnumerable<string>>(e.PropertyName!, errorMsg));
                 break;
 
             case OperationFailedException e:
                 ApplicationException = _operationFailedException;
-                Errors.Add(new KeyValuePair<string, IEnumerable<string>>(e.PropertyName, errorMsg));
+                Errors.Add(new KeyValuePair<string, IEnumerable<string>>(e.PropertyName!, errorMsg));
                 break;
 
             case UnauthorizedException:

@@ -53,7 +53,7 @@ public class KeySetResponseResult<T> : BaseResponse
         {
             case BadRequestException e:
                 HttpStatusCode = HttpStatusCode.BadRequest;
-                Errors.Add(new KeyValuePair<string, IEnumerable<string>>(e.PropertyName, errorMsg));
+                Errors.Add(new KeyValuePair<string, IEnumerable<string>>(e.PropertyName!, errorMsg));
                 break;
 
             case ValidationException e:
@@ -63,12 +63,12 @@ public class KeySetResponseResult<T> : BaseResponse
 
             case NotFoundException e:
                 HttpStatusCode = HttpStatusCode.NotFound;
-                Errors.Add(new KeyValuePair<string, IEnumerable<string>>(e.PropertyName, errorMsg));
+                Errors.Add(new KeyValuePair<string, IEnumerable<string>>(e.PropertyName!, errorMsg));
                 break;
 
             case OperationFailedException e:
                 HttpStatusCode = HttpStatusCode.BadRequest;
-                Errors.Add(new KeyValuePair<string, IEnumerable<string>>(e.PropertyName, errorMsg));
+                Errors.Add(new KeyValuePair<string, IEnumerable<string>>(e.PropertyName!, errorMsg));
                 break;
 
             case UnauthorizedException:
