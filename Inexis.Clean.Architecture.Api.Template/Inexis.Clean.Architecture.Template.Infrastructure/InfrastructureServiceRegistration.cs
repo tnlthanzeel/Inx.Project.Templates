@@ -21,7 +21,7 @@ public static class InfrastructureServiceRegistration
             opt.NotificationPublisherType = typeof(TaskWhenAllPublisher);
         });
 
-        services.TryAddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
+        services.TryAddScoped<IDomainEventDispatcher, MediatRDomainEventDispatcher>();
         services.AddScoped<IEmailService, EmailService>();
 
         return services;

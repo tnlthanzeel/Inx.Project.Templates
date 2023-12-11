@@ -8,9 +8,9 @@ using System.Reflection;
 
 namespace Inexis.Clean.Architecture.Template.Core;
 
-public static class ApplicationServiceRegistration
+public static class CoreServiceRegistration
 {
-    public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+    public static IServiceCollection AddCoreServices(this IServiceCollection services)
     {
         services.AddMediatR(opt =>
         {

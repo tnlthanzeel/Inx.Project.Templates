@@ -8,9 +8,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Inexis.Clean.Architecture.Template.Persistence;
 
-public class AppDbContext : IdentityDbContext<ApplicationUser, Role, Guid, UserClaim, IdentityUserRole<Guid>, IdentityUserLogin<Guid>, IdentityRoleClaim<Guid>, IdentityUserToken<Guid>>
+public sealed class AppDbContext : IdentityDbContext<ApplicationUser, 
+                                              Role, 
+                                              Guid, 
+                                              UserClaim, 
+                                              IdentityUserRole<Guid>,
+                                              IdentityUserLogin<Guid>, 
+                                              IdentityRoleClaim<Guid>, 
+                                              IdentityUserToken<Guid>>
 {
-    private readonly ILoggedInUserService _loggedInUserService;
+    private readonly ILoggedInUserService? _loggedInUserService;
     private readonly IDomainEventDispatcher? _dispatcher;
 
     public AppDbContext(DbContextOptions<AppDbContext> options, ILoggedInUserService loggedInUserService, IDomainEventDispatcher? dispatcher) : base(options)

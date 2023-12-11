@@ -3,11 +3,11 @@ using MediatR;
 
 namespace Inexis.Clean.Architecture.Template.SharedKernal.Models;
 
-public sealed class DomainEventDispatcher : IDomainEventDispatcher
+public sealed class MediatRDomainEventDispatcher : IDomainEventDispatcher
 {
     private readonly IMediator _mediator;
 
-    public DomainEventDispatcher(IMediator mediator)
+    public MediatRDomainEventDispatcher(IMediator mediator)
     {
         _mediator = mediator;
     }

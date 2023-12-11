@@ -22,7 +22,7 @@ var builder = WebApplication.CreateBuilder(args);
 
     services.AddCorsConfig();
 
-    services.AddApplicationServices();
+    services.AddCoreServices();
     services.AddInfrastructureServices(builder.Configuration);
     services.AddPersistenceServices(builder.Configuration);
 
