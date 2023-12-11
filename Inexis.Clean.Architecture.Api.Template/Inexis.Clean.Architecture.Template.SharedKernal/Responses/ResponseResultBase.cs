@@ -7,12 +7,6 @@ namespace Inexis.Clean.Architecture.Template.SharedKernal.Responses;
 
 public class ResponseResult<T> : BaseResponse
 {
-    private static BadRequestException _badRequestException = new();
-    private static NotFoundException _notFoundException = new();
-    private static OperationFailedException _operationFailedException = new();
-    private static UnauthorizedException _unauthorizedException = new();
-
-
     [JsonIgnore]
     public ApplicationException? ApplicationException { get; }
 
