@@ -40,8 +40,6 @@ public sealed class ExceptionHandlerMiddleware
 
         var result = string.Empty;
 
-
-
         switch (exception)
         {
             case OperationCanceledException:

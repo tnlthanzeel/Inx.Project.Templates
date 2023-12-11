@@ -5,7 +5,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
 using System.Text.Json.Serialization;
 
-namespace Inexis.Clean.Architecture.Template.Api.DIServiceExtensions;
+namespace Inexis.Clean.Architecture.Template.Api.ServiceRegistrations;
 
 internal static class SwaggerConfig
 {

@@ -1,7 +1,7 @@
 ﻿using Serilog;
 using Serilog.Events;
 
-namespace Inexis.Clean.Architecture.Template.Api.DIServiceExtensions
+namespace Inexis.Clean.Architecture.Template.Api.ServiceRegistrations
 {
     public static class SerilogConfig
     {

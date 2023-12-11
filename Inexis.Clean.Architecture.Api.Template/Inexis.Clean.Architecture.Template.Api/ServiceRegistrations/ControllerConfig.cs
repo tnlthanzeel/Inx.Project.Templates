@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Inexis.Clean.Architecture.Template.Api.DIServiceExtensions;
+namespace Inexis.Clean.Architecture.Template.Api.ServiceRegistrations;
 
 public static class ControllerConfig
 {

@@ -12,7 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Net;
 using System.Text;
 
-namespace Inexis.Clean.Architecture.Template.Api.DIServiceExtensions;
+namespace Inexis.Clean.Architecture.Template.Api.ServiceRegistrations;
 
 public static class IdentityConfig
 {

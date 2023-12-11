@@ -1,5 +1,5 @@
-using Inexis.Clean.Architecture.Template.Api.DIServiceExtensions;
 using Inexis.Clean.Architecture.Template.Api.Middleware;
+using Inexis.Clean.Architecture.Template.Api.ServiceRegistrations;
 using Inexis.Clean.Architecture.Template.Api.Services;
 using Inexis.Clean.Architecture.Template.Core;
 using Inexis.Clean.Architecture.Template.Core.Security;
