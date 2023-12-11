@@ -1,38 +1,18 @@
 ﻿using Inexis.Clean.Architecture.Template.SharedKernal.Helpers;
 using Inexis.Clean.Architecture.Template.SharedKernal.Responses;
+using Microsoft.AspNetCore.Diagnostics;
 using Serilog;
-using System.Diagnostics;
 using System.Net;
 
-namespace Inexis.Clean.Architecture.Template.Api.Middleware;
+namespace Inexis.Clean.Architecture.Template.Api;
 
-public sealed class ExceptionHandlerMiddleware
+public sealed class GlobalExceptionHandler : IExceptionHandler
 {
     private const string applicationJSONContentType = "application/json";
-    private readonly RequestDelegate _next;
 
-    public ExceptionHandlerMiddleware(RequestDelegate next)
+    public async ValueTask<bool> TryHandleAsync(HttpContext context, Exception exception, CancellationToken cancellationToken)
     {
-        _next = next;
-    }
-
-    public async Task Invoke(HttpContext context)
-    {
-        try
-        {
-            await _next(context);
-        }
-        catch (Exception ex)
-        {
-            await ConvertException(context, ex);
-        }
-    }
-
-    private Task ConvertException(HttpContext context, Exception exception)
-    {
-        var activityId = Activity.Current?.Id ?? "N/A";
-
-        ErrorResponse errorResponse = new() { TraceId = activityId };
+        ErrorResponse errorResponse = new();
 
         int httpStatusCode = StatusCodes.Status500InternalServerError;
 
@@ -47,17 +27,21 @@ public sealed class ExceptionHandlerMiddleware
                 httpStatusCode = StatusCodes.Status200OK;
                 result = Serializer.Serialize(new ResponseResult<string>("Client closed the connecion"));
                 break;
-            case Exception:
+            default:
                 httpStatusCode = StatusCodes.Status500InternalServerError;
-                errorResponse.Errors.Add(new KeyValuePair<string, IEnumerable<string>>(nameof(HttpStatusCode.InternalServerError), new[] { "Something went wrong, please try again" }));
+                errorResponse.Errors.Add(new KeyValuePair<string, IEnumerable<string>>(nameof(HttpStatusCode.InternalServerError),
+                                         new[] { "Something went wrong, please try again" }));
+
                 result = Serializer.Serialize(errorResponse);
-                LogError(exception, activityId);
+                LogError(exception, errorResponse.TraceId);
                 break;
         }
 
         context.Response.StatusCode = httpStatusCode;
 
-        return context.Response.WriteAsync(result);
+        await context.Response.WriteAsync(result, cancellationToken);
+
+        return true;
     }
 
     private static void LogError(Exception exception, string activityId)
