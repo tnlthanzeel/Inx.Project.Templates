@@ -2,6 +2,7 @@
 using Inexis.Clean.Architecture.Template.Infrastructure.NotificationServices;
 using Inexis.Clean.Architecture.Template.SharedKernal.Interfaces;
 using Inexis.Clean.Architecture.Template.SharedKernal.Models;
+using MediatR.NotificationPublishers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -16,6 +17,8 @@ public static class InfrastructureServiceRegistration
         services.AddMediatR(opt =>
         {
             opt.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+            opt.NotificationPublisher = new TaskWhenAllPublisher();
+            opt.NotificationPublisherType = typeof(TaskWhenAllPublisher);
         });
 
         services.TryAddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
