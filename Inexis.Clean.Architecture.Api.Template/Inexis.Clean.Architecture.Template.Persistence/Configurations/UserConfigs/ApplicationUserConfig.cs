@@ -32,7 +32,9 @@ internal sealed class ApplicationUserConfig : IEntityTypeConfiguration<Applicati
             EmailConfirmed = true,
             SecurityStamp = "70428f75-0a6f-4d92-a2cd-ae4e0cdbd10f",
             ConcurrencyStamp = "70428f75-0a6f-4d92-a2cd-ae4e0cdbd10f",
-            PasswordHash = "AQAAAAEAACcQAAAAEJZHh/S5hmTm+8BR8ssy2GyMm04koddmCJLLGetMIWDEwKTXVwjow5mnIKwK5ExMNA=="//Weclome@123
+
+            //)=hio(^0DWnsiSY9J9d4^pCG]ek){\*G
+            PasswordHash = "AQAAAAIAB9AAAAAAEEBu3FWgRqgJWOiqjbX1yywHztopQIdUS0I23BsyaM8FxqlUionKPmAWRrD7obg/DQ=="
         };
         builder.HasData(user);
     }
