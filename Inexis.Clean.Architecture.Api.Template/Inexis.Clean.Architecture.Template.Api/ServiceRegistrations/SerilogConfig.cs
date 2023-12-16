@@ -25,6 +25,8 @@ internal static class SerilogConfig
                .CreateLogger();
         }
 
+        builder.Host.UseSerilog();
+
         return builder;
     }
 }

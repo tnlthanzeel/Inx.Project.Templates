@@ -12,8 +12,6 @@ var builder = WebApplication.CreateBuilder(args);
 {
     builder.AddSerilogConfig();
 
-    builder.Host.UseSerilog();
-
     var services = builder.Services;
 
     services.AddControllerConfig();
