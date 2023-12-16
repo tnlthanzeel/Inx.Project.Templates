@@ -14,7 +14,7 @@ using System.Text;
 
 namespace Inexis.Clean.Architecture.Template.Api.ServiceRegistrations;
 
-public static class IdentityConfig
+internal static class IdentityConfig
 {
     private const string applicationJSONContentType = "application/json";
 

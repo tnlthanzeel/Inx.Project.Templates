@@ -7,7 +7,7 @@ using System.Text.Json.Serialization;
 
 namespace Inexis.Clean.Architecture.Template.Api.ServiceRegistrations;
 
-public static class ControllerConfig
+internal static class ControllerConfig
 {
     public static IServiceCollection AddControllerConfig(this IServiceCollection services)
     {
