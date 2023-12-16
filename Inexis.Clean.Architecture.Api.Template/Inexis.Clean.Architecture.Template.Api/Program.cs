@@ -6,7 +6,6 @@ using Inexis.Clean.Architecture.Template.Core.Security;
 using Inexis.Clean.Architecture.Template.Infrastructure;
 using Inexis.Clean.Architecture.Template.Persistence;
 using Inexis.Clean.Architecture.Template.SharedKernal.Interfaces;
-using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 {
