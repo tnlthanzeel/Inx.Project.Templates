@@ -57,9 +57,6 @@ internal static class ControllerConfig
 
         services.AddValidatorsFromAssemblyContaining<IFluentValidationAssemblyMarker>();
 
-        services.AddOutputCache();
-
         return services;
-
     }
 }

@@ -32,6 +32,7 @@ var builder = WebApplication.CreateBuilder(args);
     services.AddIdentityConfig(builder);
 
     services.AddMemoryCache();
+    services.AddOutputCache();
 
     services.AddExceptionHandler<GlobalExceptionHandler>();
 
@@ -69,7 +70,7 @@ var app = builder.Build();
     app.UseStaticFiles();
 
     app.UseHttpsRedirection();
-
+    
     app.UseCors();
 
     app.UseOutputCache();
