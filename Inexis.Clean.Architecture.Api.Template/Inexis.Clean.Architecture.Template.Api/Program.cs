@@ -64,18 +64,19 @@ var app = builder.Build();
         }
     });
 
-    app.UseHttpsRedirection();
 
+    app.UseDefaultFiles();
     app.UseStaticFiles();
+
+    app.UseHttpsRedirection();
 
     app.UseCors();
 
-    app.MapControllers().RequireAuthorization();
-
     app.UseOutputCache();
 
-    app.MapFallbackToFile("index.html");
+    app.MapControllers().RequireAuthorization();
 
+    app.MapFallbackToFile("index.html");
 
     // Enable to run automatic migrations at debug mode
     //if (builder.Environment.IsDevelopment())
