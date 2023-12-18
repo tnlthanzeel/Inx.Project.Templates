@@ -18,7 +18,7 @@ internal static class ControllerConfig
             cfg.Filters.Add(new ProducesAttribute("application/json"));
 
             //https://github.com/dotnet/aspnetcore/issues/41060
-            //cfg.Filters.Add(new ConsumesAttribute("application/json"));
+            cfg.Filters.Add(new ConsumesAttribute("application/json"));
 
             cfg.Filters.Add(new ProducesResponseTypeAttribute(typeof(ErrorResponse), StatusCodes.Status400BadRequest));
 

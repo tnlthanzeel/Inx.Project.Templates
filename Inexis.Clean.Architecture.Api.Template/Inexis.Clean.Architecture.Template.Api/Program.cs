@@ -76,7 +76,7 @@ var app = builder.Build();
 
     app.MapControllers().RequireAuthorization();
 
-    app.MapFallbackToFile("index.html");
+    app.MapFallbackToFile("/index.html");
 
     // Enable to run automatic migrations at debug mode
     //if (builder.Environment.IsDevelopment())
