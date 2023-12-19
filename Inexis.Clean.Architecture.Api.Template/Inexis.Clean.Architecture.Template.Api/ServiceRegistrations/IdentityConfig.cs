@@ -109,7 +109,7 @@ internal static class IdentityConfig
             var authPolicyApplicators = typeof(Program).Assembly
                                                        .ExportedTypes
                                                        .Where(x => typeof(IAuthPolicyApplyer)
-                                                       .IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
+                                                                   .IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
                                                        .Select(Activator.CreateInstance)
                                                        .Cast<IAuthPolicyApplyer>()
                                                        .ToList();
