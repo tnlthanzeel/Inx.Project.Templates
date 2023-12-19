@@ -6,6 +6,7 @@ using Inexis.Clean.Architecture.Template.Core.Security;
 using Inexis.Clean.Architecture.Template.Infrastructure;
 using Inexis.Clean.Architecture.Template.Persistence;
 using Inexis.Clean.Architecture.Template.SharedKernal.Interfaces;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 {
@@ -24,8 +25,8 @@ var builder = WebApplication.CreateBuilder(args);
     services.AddPersistenceServices(builder.Configuration);
 
     services.AddHttpContextAccessor();
-    services.AddScoped<ILoggedInUserService, LoggedInUserService>();
-    services.AddScoped<IApplicationContext, ApplicationContext>();
+    services.TryAddScoped<ILoggedInUserService, LoggedInUserService>();
+    services.TryAddScoped<IApplicationContext, ApplicationContext>();
 
     services.Configure<JwtConfig>(builder.Configuration.GetSection(nameof(JwtConfig)));
 
