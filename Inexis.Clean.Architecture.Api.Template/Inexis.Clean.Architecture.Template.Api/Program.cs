@@ -54,6 +54,9 @@ var app = builder.Build();
         app.UseHsts();
     }
 
+    app.UseDefaultFiles();
+    app.UseStaticFiles();
+
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
@@ -70,9 +73,6 @@ var app = builder.Build();
         c.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None);
 
     });
-
-    app.UseDefaultFiles();
-    app.UseStaticFiles();
 
     app.UseHttpsRedirection();
 
