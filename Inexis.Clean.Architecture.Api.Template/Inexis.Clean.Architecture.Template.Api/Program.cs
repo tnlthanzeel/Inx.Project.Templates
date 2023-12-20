@@ -7,6 +7,7 @@ using Inexis.Clean.Architecture.Template.Infrastructure;
 using Inexis.Clean.Architecture.Template.Persistence;
 using Inexis.Clean.Architecture.Template.SharedKernal.Interfaces;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 var builder = WebApplication.CreateBuilder(args);
 {
@@ -56,22 +57,25 @@ var app = builder.Build();
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-
-        c.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None);
-
         if (app.Environment.IsDevelopment())
         {
             c.EnablePersistAuthorization();
         }
-    });
+        else
+        {
+        }
 
+        c.SupportedSubmitMethods(new SubmitMethod[] { });
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+        c.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None);
+
+    });
 
     app.UseDefaultFiles();
     app.UseStaticFiles();
 
     app.UseHttpsRedirection();
-    
+
     app.UseCors();
 
     app.UseOutputCache();
