@@ -37,7 +37,7 @@ internal static class IdentityConfig
 
         services.Configure<PasswordHasherOptions>(option =>
         {
-            option.IterationCount = 512_000;
+            option.IterationCount = 600_000;
         });
 
         JwtConfig jwtData = new();
