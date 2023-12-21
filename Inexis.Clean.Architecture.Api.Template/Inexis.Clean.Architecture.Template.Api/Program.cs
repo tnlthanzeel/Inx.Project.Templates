@@ -2,7 +2,6 @@ using Inexis.Clean.Architecture.Template.Api;
 using Inexis.Clean.Architecture.Template.Api.ServiceRegistrations;
 using Inexis.Clean.Architecture.Template.Api.Services;
 using Inexis.Clean.Architecture.Template.Core;
-using Inexis.Clean.Architecture.Template.Core.Security;
 using Inexis.Clean.Architecture.Template.Infrastructure;
 using Inexis.Clean.Architecture.Template.Persistence;
 using Inexis.Clean.Architecture.Template.SharedKernal.Interfaces;
@@ -14,6 +13,8 @@ var builder = WebApplication.CreateBuilder(args);
     builder.AddSerilogConfig();
 
     var services = builder.Services;
+
+    ConfigurationValidator.ValidateConfigurations(services);
 
     services.AddControllerConfig();
 
@@ -29,7 +30,6 @@ var builder = WebApplication.CreateBuilder(args);
     services.TryAddScoped<ILoggedInUserService, LoggedInUserService>();
     services.TryAddScoped<IApplicationContext, ApplicationContext>();
 
-    services.Configure<JwtConfig>(builder.Configuration.GetSection(nameof(JwtConfig)));
 
     services.AddIdentityConfig(builder);
 
