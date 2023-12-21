@@ -66,9 +66,9 @@ var app = builder.Build();
         }
         else
         {
+            c.SupportedSubmitMethods(new SubmitMethod[] { });
         }
 
-        c.SupportedSubmitMethods(new SubmitMethod[] { });
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
         c.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None);
 
