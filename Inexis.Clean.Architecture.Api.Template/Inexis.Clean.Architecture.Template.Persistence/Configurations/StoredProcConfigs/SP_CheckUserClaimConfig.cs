@@ -9,6 +9,6 @@ public sealed class SP_CheckUserClaimConfig : IEntityTypeConfiguration<SP_CheckU
     public void Configure(EntityTypeBuilder<SP_CheckUserClaim> builder)
     {
         builder.HasNoKey();
-        builder.ToTable((string)null!);
+        builder.ToTable(s => s.ExcludeFromMigrations());
     }
 }
