@@ -41,19 +41,19 @@ public sealed class AppDbContext : IdentityDbContext<ApplicationUser,
             if (entity is ICreatedAudit createdEntry && entry.State == EntityState.Added)
             {
                 createdEntry.CreatedOn = DateTimeOffset.UtcNow;
-                createdEntry.CreatedBy = _loggedInUserService.UserId;
+                createdEntry.CreatedBy = _loggedInUserService?.UserId;
             }
 
             else if (entity is IDeletedAudit deletedentry and { IsDeleted: true })
             {
                 deletedentry.DeletedOn = DateTimeOffset.UtcNow;
-                deletedentry.DeletedBy = _loggedInUserService.UserId;
+                deletedentry.DeletedBy = _loggedInUserService?.UserId;
             }
 
             else if (entity is IUpdatedAudit updatedEntry && entry.State == EntityState.Modified)
             {
                 updatedEntry.UpdatedOn = DateTimeOffset.UtcNow;
-                updatedEntry.UpdatedBy = _loggedInUserService.UserId;
+                updatedEntry.UpdatedBy = _loggedInUserService?.UserId;
             }
 
             var audit = OnBeforeSaveChanges(entry, ContextId.InstanceId);
@@ -122,7 +122,7 @@ public sealed class AppDbContext : IdentityDbContext<ApplicationUser,
         var auditEntry = new AuditEntry(entry, batchId)
         {
             TableName = entry.Entity.GetType().Name,
-            UserId = _loggedInUserService.UserId
+            UserId = _loggedInUserService?.UserId
         };
 
         foreach (var property in entry.Properties)
