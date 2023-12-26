@@ -378,9 +378,9 @@ public sealed class UserSecurityRespository : BaseRepository, IUserSecurityRespo
 
         var hasClaim = await _dbContext.Set<SP_CheckUserClaim>()
                                        .FromSqlRaw("EXEC SP_CheckUserClaim @UserId,@ClaimValues", parms.ToArray())
-                                       .ToListAsync(cancellationToken: token);
+                                       .FirstOrDefaultAsync(cancellationToken: token);
 
-        return hasClaim.FirstOrDefault()?.HasClaim ?? false;
+        return hasClaim?.HasClaim ?? false;
     }
 
     public async Task<bool> DoesRoleExists(string roleName, CancellationToken token)
