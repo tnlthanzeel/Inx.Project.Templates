@@ -8,7 +8,6 @@ using Inexis.Clean.Architecture.Template.SharedKernal.Responses;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.IdentityModel.Tokens;
 using System.Net;
 using System.Text;
@@ -103,7 +102,7 @@ internal static class IdentityConfig
                 };
             });
 
-        services.TryAddTransient<IAuthorizationHandler, UserClaimRequirementHandler>();
+        services.AddTransient<IAuthorizationHandler, UserClaimRequirementHandler>();
 
         services.AddAuthorization(options =>
         {
