@@ -43,11 +43,10 @@ public class ResponseResult<T> : BaseResponse
 
     public ResponseResult(ApplicationException ex) : base()
     {
-        ApplicationException = ex;
         Success = false;
         Data = default;
 
-        var errorMsg = new[] { ex.Message };
+        string[] errorMsg = [ex.Message];
 
         switch (ex)
         {
@@ -76,6 +75,10 @@ public class ResponseResult<T> : BaseResponse
                 Errors.Add(new KeyValuePair<string, IEnumerable<string>>(nameof(HttpStatusCode.Unauthorized), errorMsg));
                 break;
 
+            default:
+                ApplicationException = _applicationException;
+                Errors.Add(new KeyValuePair<string, IEnumerable<string>>(nameof(HttpStatusCode.InternalServerError), errorMsg));
+                break;
         };
     }
 

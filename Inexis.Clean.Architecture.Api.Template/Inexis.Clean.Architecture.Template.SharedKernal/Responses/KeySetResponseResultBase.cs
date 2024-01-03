@@ -47,7 +47,7 @@ public class KeySetResponseResult<T> : BaseResponse
         Success = false;
         Data = default;
 
-        var errorMsg = new[] { ex.Message };
+        string[] errorMsg = [ex.Message];
 
         switch (ex)
         {
@@ -76,6 +76,10 @@ public class KeySetResponseResult<T> : BaseResponse
                 Errors.Add(new KeyValuePair<string, IEnumerable<string>>(nameof(HttpStatusCode.Unauthorized), errorMsg));
                 break;
 
+            default:
+                ApplicationException = _applicationException;
+                Errors.Add(new KeyValuePair<string, IEnumerable<string>>(nameof(HttpStatusCode.InternalServerError), errorMsg));
+                break;
         };
     }
 

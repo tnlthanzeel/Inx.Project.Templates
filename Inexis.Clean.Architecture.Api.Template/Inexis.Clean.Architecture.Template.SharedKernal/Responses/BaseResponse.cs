@@ -8,6 +8,7 @@ public abstract class BaseResponse
     protected static NotFoundException _notFoundException = new();
     protected static OperationFailedException _operationFailedException = new();
     protected static UnauthorizedException _unauthorizedException = new();
+    protected static ApplicationException _applicationException = new();
 
     public bool Success { get; protected init; }
 
