@@ -19,9 +19,9 @@ public sealed class UserProfileController : AppControllerBase
     [HttpPut("change-password")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status404NotFound)]
-    public async Task<ActionResult> ChangeUserPassword([FromRoute] Guid userId, [FromBody] UpdateUserPasswordDto model, CancellationToken token)
+    public async Task<ActionResult> ChangeUserPassword([FromRoute] Guid userId, [FromBody] UpdateUserPasswordDto model)
     {
-        var response = await _securityService.ChangeUserPassword(userId, model, token);
+        var response = await _securityService.ChangeUserPassword(userId, model, CancellationToken.None);
 
         return response.Success ? NoContent() : UnsuccessfullResponse(response);
     }
@@ -39,9 +39,9 @@ public sealed class UserProfileController : AppControllerBase
     [HttpPut]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status404NotFound)]
-    public async Task<ActionResult> UpdateUserProfile([FromRoute] Guid userId, [FromBody] UpdateUserProfileDto model, CancellationToken token)
+    public async Task<ActionResult> UpdateUserProfile([FromRoute] Guid userId, [FromBody] UpdateUserProfileDto model)
     {
-        var response = await _securityService.UpdateUserProfile(userId, model, token);
+        var response = await _securityService.UpdateUserProfile(userId, model, CancellationToken.None);
 
         return response.Success ? NoContent() : UnsuccessfullResponse(response);
     }

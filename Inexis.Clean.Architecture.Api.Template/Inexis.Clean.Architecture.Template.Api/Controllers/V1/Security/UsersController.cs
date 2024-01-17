@@ -23,9 +23,9 @@ public sealed class UsersController : AppControllerBase
     [HttpPost]
     [Authorize(policy: ApplicationAuthPolicy.UserPolicy.Create)]
     [ProducesResponseType(typeof(ResponseResult<UserDto>), StatusCodes.Status201Created)]
-    public async Task<ActionResult> CreateUser([FromBody] UserCreateDto model, CancellationToken token)
+    public async Task<ActionResult> CreateUser([FromBody] UserCreateDto model)
     {
-        var response = await _securityService.CreateUser(model, token);
+        var response = await _securityService.CreateUser(model, CancellationToken.None);
 
         return response.Success ? CreatedAtRoute(nameof(GetUserById), new { id = response.Data!.Id }, response) : UnsuccessfullResponse(response);
     }
@@ -61,9 +61,9 @@ public sealed class UsersController : AppControllerBase
     [Authorize(policy: ApplicationAuthPolicy.UserPolicy.Edit)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status404NotFound)]
-    public async Task<ActionResult> UpdateUser([FromRoute] Guid id, [FromBody] UpdateUserDto model, CancellationToken token)
+    public async Task<ActionResult> UpdateUser([FromRoute] Guid id, [FromBody] UpdateUserDto model)
     {
-        var response = await _securityService.UpdateUser(id, model, token);
+        var response = await _securityService.UpdateUser(id, model, CancellationToken.None);
 
         return response.Success ? NoContent() : UnsuccessfullResponse(response);
     }
@@ -72,9 +72,9 @@ public sealed class UsersController : AppControllerBase
     [Authorize(policy: ApplicationAuthPolicy.UserPolicy.Delete)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status404NotFound)]
-    public async Task<ActionResult> DeleteUser([FromRoute] Guid id, CancellationToken token)
+    public async Task<ActionResult> DeleteUser([FromRoute] Guid id)
     {
-        var response = await _securityService.DeleteUser(id, token);
+        var response = await _securityService.DeleteUser(id, CancellationToken.None);
 
         return response.Success ? NoContent() : UnsuccessfullResponse(response);
     }

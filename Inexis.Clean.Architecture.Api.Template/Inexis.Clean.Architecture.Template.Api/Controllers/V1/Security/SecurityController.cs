@@ -25,9 +25,9 @@ public sealed class SecurityController : AppControllerBase
     [AllowAnonymous]
     [HttpPost("authenticate")]
     [ProducesResponseType(typeof(ResponseResult<AuthenticatedUserDto>), StatusCodes.Status200OK)]
-    public async Task<ActionResult> Authenticate([FromBody] AuthenticateUserDto model, CancellationToken token)
+    public async Task<ActionResult> Authenticate([FromBody] AuthenticateUserDto model)
     {
-        var response = await _securityService.AuthenticateUser(model, token);
+        var response = await _securityService.AuthenticateUser(model, CancellationToken.None);
 
         return response.Success ? Ok(response) : UnsuccessfullResponse(response);
     }
@@ -46,9 +46,9 @@ public sealed class SecurityController : AppControllerBase
     [AllowAnonymous]
     [HttpPost("forgot-password")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<ActionResult> SendPasswordResetEmail([FromBody] ForgotPasswordModel forgotPasswordModel, CancellationToken token)
+    public async Task<ActionResult> SendPasswordResetEmail([FromBody] ForgotPasswordModel forgotPasswordModel)
     {
-        var response = await _securityService.SendResetPasswordEmail(forgotPasswordModel, token);
+        var response = await _securityService.SendResetPasswordEmail(forgotPasswordModel, CancellationToken.None);
 
         return response.Success ? Ok() : UnsuccessfullResponse(response);
     }
@@ -56,9 +56,9 @@ public sealed class SecurityController : AppControllerBase
     [AllowAnonymous]
     [HttpPost("reset-password")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<ActionResult> ResetPassword([FromBody] ResetPasswordDto model, CancellationToken token)
+    public async Task<ActionResult> ResetPassword([FromBody] ResetPasswordDto model)
     {
-        var response = await _securityService.ResetPassword(model, token);
+        var response = await _securityService.ResetPassword(model, CancellationToken.None);
 
         return response.Success ? Ok() : UnsuccessfullResponse(response);
     }

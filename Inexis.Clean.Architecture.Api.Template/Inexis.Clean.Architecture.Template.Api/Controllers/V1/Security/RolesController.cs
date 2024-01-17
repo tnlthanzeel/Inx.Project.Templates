@@ -23,9 +23,9 @@ public sealed class RolesController : AppControllerBase
     [HttpPost]
     [Authorize(policy: ApplicationAuthPolicy.RolePolicy.Create)]
     [ProducesResponseType(typeof(ResponseResult<UserRoleDto>), StatusCodes.Status201Created)]
-    public async Task<ActionResult> CreateRoleAsync([FromBody] UserRoleCreateDto model, CancellationToken token)
+    public async Task<ActionResult> CreateRoleAsync([FromBody] UserRoleCreateDto model)
     {
-        var response = await _userRoleService.CreateRole(model, token);
+        var response = await _userRoleService.CreateRole(model, CancellationToken.None);
 
         return response.Success ? CreatedAtRoute(nameof(GetRole), new { id = response.Data!.RoleId }, response) : UnsuccessfullResponse(response);
     }
@@ -55,9 +55,9 @@ public sealed class RolesController : AppControllerBase
     [Authorize(policy: ApplicationAuthPolicy.RolePolicy.Delete)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status404NotFound)]
-    public async Task<ActionResult> DeleteRole([FromRoute] Guid id, CancellationToken token)
+    public async Task<ActionResult> DeleteRole([FromRoute] Guid id)
     {
-        var response = await _userRoleService.Delete(id, token);
+        var response = await _userRoleService.Delete(id, CancellationToken.None);
 
         return response.Success ? NoContent() : UnsuccessfullResponse(response);
     }
@@ -65,9 +65,9 @@ public sealed class RolesController : AppControllerBase
     [HttpPut("{roleId}/permission-templates")]
     [Authorize(policy: ApplicationAuthPolicy.RolePolicy.UpdateRoleClaim)]
     [ProducesResponseType(typeof(ResponseResult), StatusCodes.Status204NoContent)]
-    public async Task<ActionResult> UpdateRoleClaims(Guid roleId, [FromBody] UpdateRoleClaimsDto model, CancellationToken token)
+    public async Task<ActionResult> UpdateRoleClaims(Guid roleId, [FromBody] UpdateRoleClaimsDto model)
     {
-        var response = await _userRolePermissionFacadeService.UpdateRoleClaim(roleId, model, token);
+        var response = await _userRolePermissionFacadeService.UpdateRoleClaim(roleId, model, CancellationToken.None);
 
         return response.Success ? NoContent() : UnsuccessfullResponse(response);
     }
