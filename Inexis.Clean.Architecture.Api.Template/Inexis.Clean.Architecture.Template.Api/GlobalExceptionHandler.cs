@@ -24,7 +24,7 @@ public sealed class GlobalExceptionHandler : IExceptionHandler
         {
             case OperationCanceledException:
                 //if client closes the connection
-                httpStatusCode = StatusCodes.Status200OK;
+                httpStatusCode = StatusCodes.Status499ClientClosedRequest;
                 result = Serializer.Serialize(new ResponseResult<string>("Client closed the connecion"));
                 break;
             default:
@@ -39,7 +39,7 @@ public sealed class GlobalExceptionHandler : IExceptionHandler
 
         context.Response.StatusCode = httpStatusCode;
 
-        await context.Response.WriteAsync(result, cancellationToken);
+        await context.Response.WriteAsync(result, CancellationToken.None);
 
         return true;
     }
