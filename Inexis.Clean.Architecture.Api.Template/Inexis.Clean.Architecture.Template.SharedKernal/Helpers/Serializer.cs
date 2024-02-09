@@ -5,7 +5,7 @@ namespace Inexis.Clean.Architecture.Template.SharedKernal.Helpers;
 
 public static class Serializer
 {
-    private static JsonSerializerOptions _jsonSettings = new JsonSerializerOptions
+    private readonly static JsonSerializerOptions _jsonSettings = new JsonSerializerOptions
     {
         ReferenceHandler = ReferenceHandler.IgnoreCycles,
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
